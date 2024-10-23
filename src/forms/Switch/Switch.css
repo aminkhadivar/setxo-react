@@ -9,7 +9,7 @@
 }
 
 .form-switch .form-label {
-    @apply mb-0 gap-2
+    @apply mb-0 gap-2 cursor-pointer
 }
 
 .form-switch .form-label.disabled {
