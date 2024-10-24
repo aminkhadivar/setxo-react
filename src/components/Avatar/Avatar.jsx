@@ -1,7 +1,7 @@
 import Image from "../../contents/Image/Image"
 import './Avatar.css'
 
-export default function Avatar({ children, url, alt, size, height = '48', className = '', rounded = 'rounded', border = '', ...props }) {
+export default function Avatar({ children, url, title, alt, size, height = '48', className = '', rounded = 'rounded', border = '', ...props }) {
 
     const DefaultAvatar = () => {
         return (
@@ -41,6 +41,7 @@ export default function Avatar({ children, url, alt, size, height = '48', classN
                     url={url}
                     className={`avatar` + `${className && ` ` + className}` + `${border && ` ` + borderClass}`}
                     alt={alt || 'User Avatar'}
+                    title={title || 'User Avatar'}
                     rounded={rounded}
                     as="thumbnail"
                     thumbnailSize={size ? sizeClass : height} />
@@ -49,7 +50,8 @@ export default function Avatar({ children, url, alt, size, height = '48', classN
                     {...props}
                     children={children ? children : <DefaultAvatar />}
                     className={`avatar` + `${className && ` ` + className}` + `${border && ` ` + borderClass}`}
-                    title={alt || 'User Avatar'}
+                    alt={alt || 'User Avatar'}
+                    title={title || 'User Avatar'}
                     rounded={rounded}
                     as="svg"
                     height={size ? sizeClass : height}
