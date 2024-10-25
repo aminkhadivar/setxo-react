@@ -1,7 +1,7 @@
 /* ------------- Dropdowns ------------- */
 
 .dropmenu {
-    @apply absolute z-30 rounded-lg shadow-md shadow-gray-200 dark:shadow-none
+    @apply absolute z-30 rounded-lg shadow-md shadow-gray-200 dark:shadow-none overflow-hidden
 }
 
 .drop-trigger {
@@ -21,7 +21,7 @@
 }
 
 .dropup-start {
-    @apply bottom-full mb-2 
+    @apply bottom-full mb-2
 }
 
 .dropup-center {
@@ -45,11 +45,11 @@
 }
 
 .dropstart-start {
-    @apply right-full mr-2 top-0 
+    @apply right-full mr-2 top-0
 }
 
 .dropstart-center {
-    @apply right-full mr-2 top-1/2 -translate-y-1/2 
+    @apply right-full mr-2 top-1/2 -translate-y-1/2
 }
 
 .dropstart-end {
@@ -69,9 +69,13 @@
 }
 
 .drop-content {
-    @apply relative rounded-lg
+    @apply relative
 }
 
 .dropdown-link {
     @apply flex items-center w-full px-2 py-2 text-left text-sm leading-5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-600 rounded cursor-pointer transition duration-300
+}
+
+.dark .dropdown-link {
+    @apply text-zinc-300 hover:text-zinc-100 hover:bg-zinc-600
 }
