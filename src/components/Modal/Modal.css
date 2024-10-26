@@ -1,10 +1,11 @@
 /* ------------- Modal ------------- */
+
 .modal {
     @apply fixed inset-0 px-4 sm:px-0 items-center z-50 transform transition-all
 }
 
 .modal-dialog {
-    @apply bg-white dark:bg-gray-950 shadow-xl dark:shadow-none transform transition-all sm:w-full sm:mx-auto
+    @apply bg-white dark:bg-gray-900 shadow-xl dark:shadow-none transform transition-all sm:w-full sm:mx-auto
 }
 
 .modal-title {
@@ -24,7 +25,7 @@
 }
 
 .modal-backdrop {
-    @apply fixed inset-0 bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity
+    @apply fixed inset-0 bg-gray-800 bg-opacity-80 transition-opacity
 }
 
 .backdrop-motion {
