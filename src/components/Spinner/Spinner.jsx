@@ -1,6 +1,6 @@
 import './Spinner.css'
 
-export default function Spinner({ as = 'border', className = '', color = '', size = '', ...props }) {
+export default function Spinner({ as = 'border', className = '', color = '', size = 'default', ...props }) {
 
     const colorClass = {
         default: 'spinner-default',
@@ -18,6 +18,7 @@ export default function Spinner({ as = 'border', className = '', color = '', siz
 
     const sizeClass = {
         sm: 'spinner-sm',
+        default: '',
         lg: 'spinner-lg',
     }[size]
 

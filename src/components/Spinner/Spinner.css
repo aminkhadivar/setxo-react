@@ -5,7 +5,7 @@
 }
 
 .spinner-border.spinner-default {
-    @apply border-x-current border-y-gray-100 dark:border-x-current dark:border-y-gray-200/20
+    @apply border-x-current border-y-gray-100 dark:border-x-gray-200 dark:border-y-gray-200/20
 }
 
 .spinner-border.spinner-light {
