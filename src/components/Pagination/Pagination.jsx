@@ -1,12 +1,12 @@
-import { createContext , useContext } from 'react'
+import { createContext, useContext } from 'react'
 import { Link } from '@inertiajs/react'
 import './Pagination.css'
 
 const PaginationContext = createContext()
 
-const Pagination = ({ children, className = '' , color ='light' }) => {
+const Pagination = ({ children, className = '', color = 'light', rounded = 'rounded', size = 'default' }) => {
     return (
-        <PaginationContext.Provider value={{ className, children ,color}}>
+        <PaginationContext.Provider value={{ className, children, color, rounded , size }}>
             <nav aria-label="navigation">
                 <ul className={'pagination' + (className && ` ${className}`)}>
                     {children}
@@ -16,9 +16,9 @@ const Pagination = ({ children, className = '' , color ='light' }) => {
     );
 };
 
-const PaginationItem = ({ children, className = '' , active = '', rounded = 'rounded', disabled = '', size = 'default', href, ...props }) => {
+const PaginationItem = ({ children, className = '', active = '', disabled = '', href, ...props }) => {
 
-    const { color } = useContext(PaginationContext)
+    const { color, rounded , size } = useContext(PaginationContext)
 
     const colorClass = {
         light: 'page-link-light',
@@ -30,7 +30,7 @@ const PaginationItem = ({ children, className = '' , active = '', rounded = 'rou
         warning: 'page-link-warning',
         info: 'page-link-info',
         purple: 'page-link-purple',
-    }[color];
+    }[color]
 
     const roundedClass = {
         none: 'rounded-none',
@@ -39,7 +39,7 @@ const PaginationItem = ({ children, className = '' , active = '', rounded = 'rou
         md: 'rounded-md',
         lg: 'rounded-lg',
         full: 'rounded-full',
-    }[rounded];
+    }[rounded]
 
     const sizeClass = {
         sm: 'text-sm px-3 h-8',
@@ -47,7 +47,7 @@ const PaginationItem = ({ children, className = '' , active = '', rounded = 'rou
         default: 'px-4 h-10',
         lg: 'text-lg px-4 h-11',
         xl: 'text-xl px-5 h-12',
-    }[size];
+    }[size]
 
     return (
         <li
@@ -72,9 +72,9 @@ const PaginationItem = ({ children, className = '' , active = '', rounded = 'rou
                 </>
             }
         </li>
-    );
-};
+    )
+}
 
-Pagination.Item = PaginationItem;
+Pagination.Item = PaginationItem
 
-export default Pagination;
+export default Pagination
