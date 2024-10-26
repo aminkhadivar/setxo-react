@@ -1,6 +1,6 @@
 import './Progress.css'
 
-export default function Progress({ className = '', disabled = '', height = '16', children, withLable = false, striped = '', animated = '', color = 'primary', rounded = 'full', value = '60', ...props }) {
+export default function Progress({ className = '', disabled = '', height = '16', children, withLabel = false, striped = '', animated = '', color = 'primary', rounded = 'full', value = '60', ...props }) {
 
     const colorClass = {
         light: 'progress-bar-light',
@@ -12,7 +12,7 @@ export default function Progress({ className = '', disabled = '', height = '16',
         warning: 'progress-bar-warning',
         info: 'progress-bar-info',
         purple: 'progress-bar-purple',
-    }[color];
+    }[color]
 
     const roundedClass = {
         none: 'rounded-none',
@@ -21,7 +21,7 @@ export default function Progress({ className = '', disabled = '', height = '16',
         md: 'rounded-md',
         lg: 'rounded-lg',
         full: 'rounded-full',
-    }[rounded];
+    }[rounded]
 
     const indeterminateClass = {
         light: 'progress-indeterminate-light',
@@ -33,7 +33,7 @@ export default function Progress({ className = '', disabled = '', height = '16',
         warning: 'progress-indeterminate-warning',
         info: 'progress-indeterminate-info',
         purple: 'progress-indeterminate-purple',
-    }[color];
+    }[color]
 
     return (
         <div className={`progress ${value == null ? `${indeterminateClass}` : ''}` + ` ${roundedClass}`}
@@ -47,7 +47,7 @@ export default function Progress({ className = '', disabled = '', height = '16',
                 style={{ width: `${value}%`, height: `${height}px`, maxWidth: '100%' }}
                 role="progressbar"
             >
-                {withLable &&
+                {withLabel &&
                     <div className="progress-label">
                         {`${value}%`}
                     </div>
