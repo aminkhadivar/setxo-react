@@ -1,9 +1,10 @@
-import { forwardRef, useRef } from 'react'
+import { forwardRef, useRef, useContext } from 'react'
+import { FormContext } from "../Form/Form"
 import Input from "./Input"
 import Label from "./Label"
-import './FormControl.css'
+import './FileInput.css'
 
-export default forwardRef(function FileInput({ label = '', id, className = '', size = 'default', disabled = '', readOnly = '', ...props }, ref) {
+export default forwardRef(function FileInput({ label = '', id, className = '', size = 'default', disabled = ('' || useContext(FormContext)), readOnly = '', ...props }, ref) {
 
     const input = ref ? ref : useRef()
 

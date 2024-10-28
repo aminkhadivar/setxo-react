@@ -1,8 +1,10 @@
 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Label from "../FormControl/Label"
+import { FormContext } from "../Form/Form"
 import './Range.css'
-export default function Range({ max = '100', min = '0', step, value, className = '', color = '', label, disabled = '', size = '', reverse = '', ...props }) {
+
+export default function Range({ max = '100', min = '0', step, value, className = '', color = '', label, disabled = ('' || useContext(FormContext)), size = '', reverse = '', ...props }) {
 
     const [inputValue, setInputValue] = useState(value)
 
@@ -47,7 +49,7 @@ export default function Range({ max = '100', min = '0', step, value, className =
 
     return (
         <div className="form-range">
-            <Label value={label} className={`${disabled && ' disabled'}`}>
+            <Label value={label} className={`${disabled ? ' disabled' : ''}`}>
                 <div className={`form-range-slider` + `${size && ` ` + sizeClass}`}>
                     <div className={`range-box`}></div>
                     <input
@@ -58,9 +60,9 @@ export default function Range({ max = '100', min = '0', step, value, className =
                         max={max}
                         step={step}
                         onChange={onChangeInput}
-                        className={`form-range-input`+ `${color && ` ` + thumbColorClass}`}
+                        className={`form-range-input` + `${color && ` ` + thumbColorClass}`}
                     />
-                    
+
                     <div className={`form-range-fill` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' range-default'}`} style={{ width: `${percent}%` }}></div>
                 </div>
             </Label>

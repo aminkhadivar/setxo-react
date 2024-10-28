@@ -1,8 +1,13 @@
-export default function InputError({ message, className = '', ...props }) {
-    return message &&
+import { useContext } from 'react'
+import { FormContext } from "../Form/Form"
+import './InputHelp.css'
+
+export default function InputHelp({ message, className = '', disabled = ('' || useContext(FormContext)), ...props }) {
+    return (
         <p
             {...props}
-            className={`text-sm text-gray-500 dark:text-gray-400` + `${className && ` ` + className}`}>
+            className={`input-text-help` + `${className && ` ` + className}` + `${disabled && ` disabled`}`}>
             {message}
         </p>
+    )
 }

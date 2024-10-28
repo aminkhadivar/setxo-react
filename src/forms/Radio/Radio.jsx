@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Label from "../FormControl/Label"
+import { FormContext } from "../Form/Form"
 import './Radio.css'
-export default function Checkbox({ children , value, id, className = '', color = '', size = '', label, disabled = '', defaultChecked = false, ...props }) {
+export default function Checkbox({ children, value, id, className = '', color = '', size = '', label, disabled = ('' || useContext(FormContext)), defaultChecked = false, ...props }) {
 
     const [checked, setChecked] = useState(defaultChecked)
 
@@ -28,7 +29,7 @@ export default function Checkbox({ children , value, id, className = '', color =
 
     return (
         <div className="form-radio">
-            <Label className={`${disabled && ' disabled'}`}>
+            <Label className={`${disabled ? ' disabled' : ''}`}>
                 <input
                     {...props}
                     type="radio"

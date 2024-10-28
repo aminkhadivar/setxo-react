@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Label from "../FormControl/Label"
+import { FormContext } from "../Form/Form"
 import './Switch.css'
-export default function Switch({ children, id, className = '', color = '', label, disabled = '', size = '', defaultChecked = false, reverse = '', ...props }) {
+export default function Switch({ children, id, className = '', color = '', label, disabled = ('' || useContext(FormContext)), size = '', defaultChecked = false, reverse = '', ...props }) {
 
     const [checked, setChecked] = useState(defaultChecked)
 
@@ -30,7 +31,7 @@ export default function Switch({ children, id, className = '', color = '', label
 
     return (
         <div className="form-switch">
-            <Label htmlFor={id} value={label} className={`${reverse && ` switch-reverse`}` + `${disabled && ' disabled'}`}>
+            <Label htmlFor={id} value={label} className={`${reverse && ` switch-reverse`}` + `${disabled ? ' disabled' : ''}`}>
                 <input
                     {...props}
                     type="checkbox"

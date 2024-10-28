@@ -1,0 +1,9 @@
+/* ------------- Color Input ------------- */
+
+.form-control-color-wrapper {
+    @apply relative flex items-center justify-center h-10 w-10 overflow-hidden rounded-full
+}
+
+.form-control-color {
+    @apply absolute w-12 h-12 cursor-pointer rounded-full  disabled:opacity-60 disabled:cursor-not-allowed
+}

@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState , useContext } from 'react'
 import Label from "../FormControl/Label"
+import { FormContext } from "../Form/Form"
 import './Checkbox.css'
-export default function Checkbox({ id, className = '', color = '', label, disabled = '', size = '', defaultChecked = false, darkTick = '', ...props }) {
+
+export default function Checkbox({ id, className = '', color = '', label, disabled = ('' || useContext(FormContext)), size = '', defaultChecked = false, darkTick = '', ...props }) {
 
     const [checked, setChecked] = useState(defaultChecked)
 
@@ -28,7 +30,7 @@ export default function Checkbox({ id, className = '', color = '', label, disabl
 
     return (
         <div className="form-check">
-            <Label htmlFor={id} value={label} className={`${disabled && ' disabled'}`}>
+            <Label htmlFor={id} value={label} className={`${disabled ? ' disabled' : ''}`}>
                 <input
                     {...props}
                     type="checkbox"

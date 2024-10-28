@@ -1,4 +1,4 @@
-import './FormControl.css'
+import './Label.css'
 
 export default function Label({ value, className = '', children, ...props }) {
     return (

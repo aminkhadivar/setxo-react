@@ -1,7 +1,8 @@
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState, useContext } from 'react'
+import { FormContext } from "../Form/Form"
 import './FormControl.css'
 
-export default forwardRef(function Textarea({ type = 'text', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value, disabled = '', ...props }, ref) {
+export default forwardRef(function Textarea({ type = 'text', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), ...props }, ref) {
 
     const [textareaValue, setTextareaValue] = useState(value)
 

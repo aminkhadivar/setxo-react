@@ -1,7 +1,8 @@
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { useContext } from 'react'
+import { FormContext } from "../Form/Form"
 import './Select.css'
 
-export default function Select({ children, id, className = '', label = '', defaultValue, rounded = 'rounded', size = 'default', value, disabled = '', ...props }) {
+export default function Select({ children, id, className = '', label = '', defaultValue, rounded = 'rounded', size = 'default', value, disabled = ('' || useContext(FormContext)), ...props }) {
 
     const roundedClass = {
         none: 'rounded-none',
@@ -19,7 +20,7 @@ export default function Select({ children, id, className = '', label = '', defau
     }[size]
 
     return (
-        <select {...props} id={id} className={`form-select` + ` ${sizeClass}` + ` ${roundedClass}` + `${disabled && ' disabled'}`} aria-label={label} defaultValue={defaultValue} disabled={disabled} size={size}>
+        <select {...props} id={id} className={`form-select` + ` ${sizeClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`} aria-label={label} defaultValue={defaultValue} disabled={disabled} size={size}>
             {children}
         </select>
     )

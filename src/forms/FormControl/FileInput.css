@@ -1,0 +1,21 @@
+/* ------------- File Input ------------- */
+
+.form-control[type="file"]:not(:disabled):not([readonly]) {
+    @apply block w-full p-1 focus:ring-0 text-sm file:mr-4 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-100 dark:file:bg-gray-600 file:text-gray-700 dark:file:text-gray-200 dark:hover:file:bg-gray-500 group-hover:file:bg-gray-200 dark:group-hover:file:bg-gray-500 border hover:border-gray-400 dark:hover:border-gray-500 rounded-full file:duration-300 cursor-pointer
+}
+
+.form-control[type="file"].disabled {
+    @apply block w-full p-1 focus:ring-0 text-sm file:mr-4 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-400 dark:file:bg-gray-600 file:text-gray-700 dark:file:text-gray-200 dark:hover:file:bg-gray-500 border hover:border-gray-400 dark:hover:border-gray-500 rounded-full file:duration-300 cursor-pointer
+}
+
+.form-control-file {
+    @apply file:h-full
+}
+
+.form-control-file-sm {
+    @apply file:h-full
+}
+
+.form-control-file-lg {
+    @apply file:h-full
+}

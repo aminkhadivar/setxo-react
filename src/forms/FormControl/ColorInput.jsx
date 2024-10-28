@@ -1,8 +1,9 @@
-import { forwardRef, useRef, useState } from 'react'
+import { forwardRef, useRef, useState, useContext } from 'react'
 import Label from "./Label"
-import './FormControl.css'
+import { FormContext } from "../Form/Form"
+import './ColorInput.css'
 
-export default forwardRef(function ColorInput({ label = '', id, className = '', value, disabled, ...props }, ref) {
+export default forwardRef(function ColorInput({ label = '', id, className = '', value, disabled = ('' || useContext(FormContext)), ...props }, ref) {
 
     const input = ref ? ref : useRef()
 

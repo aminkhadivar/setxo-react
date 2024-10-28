@@ -1,0 +1,9 @@
+/* ------------- Input Error ------------- */
+
+.input-text-error {
+    @apply text-sm text-red-500 dark:text-red-400
+}
+
+.input-text-error.disabled {
+    @apply opacity-50
+}

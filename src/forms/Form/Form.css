@@ -1,0 +1,5 @@
+/* ------------- Form ------------- */
+
+.btn:disabled, form.disabled .btn {
+    @apply pointer-events-none opacity-50
+}

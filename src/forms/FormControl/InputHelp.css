@@ -1,0 +1,9 @@
+/* ------------- Input Help ------------- */
+
+.input-text-help {
+    @apply text-sm text-gray-500 dark:text-gray-400
+}
+
+.input-text-help.disabled {
+    @apply opacity-50
+}
