@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useRef, useState, useContext } from 'react'
 import './FormControl.css'
 import { FormContext } from "../Form/Form"
 
-export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', color = '', isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), readOnly = '', ...props }, ref) {
+export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', color = '', isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), readOnly = '', onChange = () => { }, ...props }, ref) {
 
     const asClass = {
         text: 'form-control',
@@ -21,7 +21,7 @@ export default forwardRef(function Input({ as = 'text', type = 'text', className
 
     const onChangeInput = (e) => {
         if (!readOnly) {
-            setInputValue(e.target.value)
+            setInputValue(e.target.value) || onChange(e)
         }
     }
 
