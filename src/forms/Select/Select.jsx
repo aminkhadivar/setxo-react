@@ -1,8 +1,15 @@
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { FormContext } from "../Form/Form"
+import Label from "../FormControl/Label"
 import './Select.css'
 
-export default function Select({ children, id, className = '', label = '', defaultValue, rounded = 'rounded', size = 'default', value, disabled = ('' || useContext(FormContext)), ...props }) {
+export default function Select({ children, id, className = '', label = '', defaultValue, color = 'default' , rounded = 'rounded', size = 'default', value, disabled = ('' || useContext(FormContext)), ...props }) {
+
+    const [selected, setSelected] = useState(defaultValue)
+
+    const onChangeSelect = (e) => {
+        setSelected(e.target.value)
+    }
 
     const roundedClass = {
         none: 'rounded-none',
@@ -19,9 +26,35 @@ export default function Select({ children, id, className = '', label = '', defau
         lg: 'form-select-lg',
     }[size]
 
+    const colorClass = {
+        default: 'select-default',
+        light: 'select-light',
+        gray: 'select-gray',
+        dark: 'select-dark',
+        primary: 'select-primary',
+        success: 'select-success',
+        danger: 'select-danger',
+        warning: 'select-warning',
+        info: 'select-info',
+        purple: 'select-purple',
+        custom: ''
+    }[color]
+
     return (
-        <select {...props} id={id} className={`form-select` + ` ${sizeClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`} aria-label={label} defaultValue={defaultValue} disabled={disabled} size={size}>
-            {children}
-        </select>
+        <div className="form-select-wrapp">
+            <Label htmlFor={id} value={label} />
+            <select
+                {...props}
+                id={id}
+                className={`form-select` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`}
+                aria-label={label}
+                value={selected}
+                disabled={disabled}
+                size={size}
+                onChange={onChangeSelect}
+            >
+                {children}
+            </select>
+        </div>
     )
 }

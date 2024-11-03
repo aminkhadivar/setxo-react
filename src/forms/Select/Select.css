@@ -4,8 +4,12 @@ select {
     @apply py-1
 }
 
+.form-select-wrapp {
+    @apply flex flex-col
+}
+
 .form-select {
-    @apply w-full block px-2 bg-transparent border-black/10 dark:border-white/20 focus:bg-white dark:focus:bg-black/20 focus:border-setxo-300 dark:focus:border-zinc-300/60 focus:ring focus:ring-setxo-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none
+    @apply w-full block px-2 bg-white dark:bg-zinc-900 border-gray-300 dark:border-gray-600 focus:bg-white dark:focus:bg-zinc-900  duration-300 focus:outline-none outline-none resize-none
 }
 
 .form-select-sm {
@@ -22,4 +26,56 @@ select {
 
 .form-select.disabled {
     @apply pointer-events-none opacity-60 bg-gray-200 dark:bg-gray-700
+}
+
+.select-default {
+    @apply dark:text-gray-200 focus:border-gray-400 dark:focus:border-zinc-300/60 focus:ring focus:ring-gray-200 dark:focus:ring-white/20 focus:ring-opacity-50
+}
+
+.dark .select-default {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23e5e7eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+.select-light {
+    @apply bg-gray-100 dark:bg-gray-200 focus:bg-gray-100 dark:focus:bg-gray-200 text-gray-800 focus:border-gray-400 dark:focus:border-transparent focus:ring focus:ring-gray-300 dark:focus:ring-gray-400 focus:ring-opacity-50
+}
+
+.select-gray {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-gray-300 dark:bg-gray-300 focus:bg-gray-300 dark:focus:bg-gray-300 border-gray-400 dark:border-gray-600 text-gray-800 focus:border-gray-500 dark:focus:border-transparent focus:ring focus:ring-gray-400 dark:focus:ring-gray-500 focus:ring-opacity-50
+}
+
+.select-dark {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-gray-600 dark:bg-gray-600 focus:bg-gray-600 dark:focus:bg-gray-600 border-gray-900 dark:border-gray-800 text-gray-200 focus:border-gray-800 dark:focus:border-transparent focus:ring focus:ring-gray-500 dark:focus:ring-gray-500 focus:ring-opacity-50 
+}
+
+.select-primary {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-blue-50 dark:bg-blue-50 focus:bg-blue-50 dark:focus:bg-blue-100 border-blue-200 dark:border-blue-200 text-gray-800 focus:border-blue-300 dark:focus:border-transparent focus:ring focus:ring-blue-200 dark:focus:ring-blue-300 focus:ring-opacity-50 
+}
+
+.select-success {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2316a34a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-green-50 dark:bg-green-50 focus:bg-green-50 dark:focus:bg-green-100 border-green-200 dark:border-green-200 text-gray-800 focus:border-green-300 dark:focus:border-transparent focus:ring focus:ring-green-200 dark:focus:ring-green-300 focus:ring-opacity-50 
+}
+
+.select-danger {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23dc2626' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-red-50 dark:bg-red-50 focus:bg-red-50 dark:focus:bg-red-100 border-red-200 dark:border-red-200 text-gray-800 focus:border-red-300 dark:focus:border-transparent focus:ring focus:ring-red-200 dark:focus:ring-red-300 focus:ring-opacity-50 
+}
+
+.select-warning {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23d97706' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-amber-50 dark:bg-amber-50 focus:bg-amber-50 dark:focus:bg-amber-100 border-amber-200 dark:border-amber-200 text-gray-800 focus:border-amber-300 dark:focus:border-transparent focus:ring focus:ring-amber-200 dark:focus:ring-amber-300 focus:ring-opacity-50 
+}
+
+.select-info {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230891b2' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-cyan-50 dark:bg-cyan-50 focus:bg-cyan-50 dark:focus:bg-cyan-100 border-cyan-200 dark:border-cyan-200 text-gray-800 focus:border-cyan-300 dark:focus:border-transparent focus:ring focus:ring-cyan-200 dark:focus:ring-cyan-300 focus:ring-opacity-50 
+}
+
+.select-purple {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23673ce5' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    @apply bg-setxo-50 dark:bg-setxo-50 focus:bg-setxo-50 dark:focus:bg-setxo-100 border-setxo-200 dark:border-setxo-200 text-gray-800 focus:border-setxo-300 dark:focus:border-transparent focus:ring focus:ring-setxo-200 dark:focus:ring-setxo-300 focus:ring-opacity-50 
 }
