@@ -5,25 +5,30 @@ import './Drawer.css'
 
 export default function Drawer({ children, className = '', title, content, footer, trigger, show = false, width = '', placement = 'top', closeable = true, onClose = () => { }, ...props }) {
 
+    const getBody = document.querySelector("body")
+
     const [showingDrawer, setshowingDrawer] = useState(false)
     const showDrawer = () => {
         setshowingDrawer(true)
+        getBody.style.overflow = 'unset'
     }
 
     const close = () => {
         if (closeable) {
             setshowingDrawer(false) || onClose()
+            getBody.style.removeProperty("overflow")
         } else {
-            var element = document.querySelector('.drawer-dialog');
-            element.classList.add("backdrop-effect");
+            var getDrawerDialog = document.querySelector('.drawer-dialog')
+            getDrawerDialog.classList.add("backdrop-effect")
             setTimeout(() => {
-                element.classList.remove("backdrop-effect");
+                getDrawerDialog.classList.remove("backdrop-effect")
             }, 250)
         }
     }
 
     const closeButton = () => {
         setshowingDrawer(false) || onClose()
+        getBody.style.removeProperty("overflow")
     }
 
     const alignClass = {

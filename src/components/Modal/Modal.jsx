@@ -5,14 +5,18 @@ import './Modal.css'
 
 export default function Modal({ content, trigger, title, footer, id, className = '', show = false, centered = '', bodyScrollable = '', contentScrollable = '', size = 'md', closeable = true, onClose = () => { }, ...props }) {
 
+    const getBody = document.querySelector("body")
+
     const [showingModal, setshowingModal] = useState(false)
     const showModal = () => {
         setshowingModal(true)
+        getBody.style.overflow = 'unset'
     }
 
     const close = () => {
         if (closeable) {
             setshowingModal(false) || onClose()
+            getBody.style.removeProperty("overflow")
         } else {
             var element = document.querySelector('.modal-dialog')
             element.classList.add("backdrop-effect")
@@ -24,6 +28,7 @@ export default function Modal({ content, trigger, title, footer, id, className =
 
     const closeButton = () => {
         setshowingModal(false) || onClose()
+        getBody.style.removeProperty("overflow")
     }
 
     const maxWidthClass = {
