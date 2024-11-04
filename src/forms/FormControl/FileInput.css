@@ -19,3 +19,8 @@
 .form-control-file-lg {
     @apply file:h-full
 }
+
+.sr-only {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
