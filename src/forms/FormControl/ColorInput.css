@@ -1,5 +1,9 @@
 /* ------------- Color Input ------------- */
 
+.form-color {
+    @apply flex flex-col
+}
+
 .form-control-color-wrapper {
     @apply relative flex items-center justify-center h-10 w-10 overflow-hidden rounded-full
 }

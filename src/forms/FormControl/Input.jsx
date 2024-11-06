@@ -41,8 +41,16 @@ export default forwardRef(function Input({ as = 'text', type = 'text', className
     }[size]
 
     const colorClass = {
-        dark: 'form-control-dark',
         light: 'form-control-light',
+        gray: 'form-control-gray',
+        dark: 'form-control-dark',
+        primary: 'form-control-primary',
+        success: 'form-control-success',
+        danger: 'form-control-danger',
+        warning: 'form-control-warning',
+        info: 'form-control-info',
+        purple: 'form-control-purple',
+        custom: ''
     }[color]
 
     return (

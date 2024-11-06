@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useRef, useState, useContext } from 'react'
 import { FormContext } from "../Form/Form"
 import './FormControl.css'
 
-export default forwardRef(function Textarea({ type = 'text', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), ...props }, ref) {
+export default forwardRef(function Textarea({ type = 'text' , color = '', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), ...props }, ref) {
 
     const [textareaValue, setTextareaValue] = useState(value)
 
@@ -22,19 +22,34 @@ export default forwardRef(function Textarea({ type = 'text', className = '', rou
         lg: 'rounded-lg',
     }[rounded]
 
+    const colorClass = {
+        default: 'form-control-default',
+        light: 'form-control-light',
+        gray: 'form-control-gray',
+        dark: 'form-control-dark',
+        primary: 'form-control-primary',
+        success: 'form-control-success',
+        danger: 'form-control-danger',
+        warning: 'form-control-warning',
+        info: 'form-control-info',
+        purple: 'form-control-purple',
+        custom: ''
+    }[color]
+
     return (
         <textarea
             {...props}
             type={type}
-            className={`form-control` +
-                `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled && ' pointer-events-none opacity-50 !bg-gray-200'
-                }` + `${resizeabled ? ' ' : ' resize-none'}`
+            className={`form-control` + `${color && ` ` + colorClass}` +
+                `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled ? ' disabled'
+                : ''}` + `${resizeabled ? ' resize' : ' resize-none'}`
             }
             ref={textarea}
             rows={rows}
             value={textareaValue || ''}
             onChange={e => setTextareaValue(e.target.value)}
             placeholder={placeholder}
+            disabled={disabled}
         />
     )
 })

@@ -14,7 +14,7 @@ export default forwardRef(function ColorInput({ label = '', id, className = '', 
     }
 
     return (
-        <>
+        <div className="form-color">
             {label &&
                 <Label htmlFor={disabled ? null : id} value={label} />
             }
@@ -30,6 +30,6 @@ export default forwardRef(function ColorInput({ label = '', id, className = '', 
                     disabled={disabled}
                     title={label} />
             </div>
-        </>
+        </div>
     )
 })
