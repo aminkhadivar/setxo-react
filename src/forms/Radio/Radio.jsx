@@ -1,16 +1,21 @@
-import { useState, useContext } from 'react'
+import { useState, createContext, useContext } from 'react'
 import Label from "../FormControl/Label"
 import { FormContext } from "../Form/Form"
 import './Radio.css'
-export default function Checkbox({ children, value, id, className = '', color = '', size = '', label, disabled = ('' || useContext(FormContext)), defaultChecked = false, ...props }) {
 
-    const [checked, setChecked] = useState(defaultChecked)
+const RadioContext = createContext()
 
-    const toggleCheked = (e) => {
-        setChecked(e.target.value)
+const Radio = ({ children, name, color = 'default', size = '', onChange, defaultValue }) => {
+
+    const [selectedValue, setSelectedValue] = useState(defaultValue || '');
+
+    const handleChange = (value) => {
+        setSelectedValue(value)
+        onChange && onChange(value)
     }
 
     const colorClass = {
+        default: '',
         light: 'radio-light',
         gray: 'radio-gray',
         dark: 'radio-dark',
@@ -24,8 +29,22 @@ export default function Checkbox({ children, value, id, className = '', color = 
 
     const sizeClass = {
         sm: 'radio-sm',
+        default: '',
         lg: 'radio-lg',
     }[size]
+
+    return (
+        <RadioContext.Provider value={{ name, selectedValue, color, colorClass, size, sizeClass, onChange: handleChange }}>
+            {children}
+        </RadioContext.Provider>
+    )
+}
+
+const RadioItem = ({ children, value, className = '', label, disabled = ('' || useContext(FormContext)), ...props }) => {
+
+    const { name, selectedValue, onChange, color, colorClass, size, sizeClass } = useContext(RadioContext)
+
+    const isChecked = selectedValue === value
 
     return (
         <div className="form-radio">
@@ -33,15 +52,20 @@ export default function Checkbox({ children, value, id, className = '', color = 
                 <input
                     {...props}
                     type="radio"
+                    name={name}
                     value={value}
                     className={`form-radio-input` + `${className && ` ` + className}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}`
                     }
-                    defaultChecked={checked}
+                    checked={isChecked}
                     disabled={disabled}
-                    onChange={toggleCheked}
+                    onChange={() => onChange(value)}
                 />
                 {children}
             </Label>
         </div>
     )
 }
+
+Radio.Item = RadioItem
+
+export default Radio
