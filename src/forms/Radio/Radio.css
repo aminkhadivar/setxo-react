@@ -1,7 +1,7 @@
 /* ------------- Radio ------------- */
 
 .form-radio {
-    @apply w-auto h-auto border-none
+    @apply w-auto h-auto border-none bg-transparent
 }
 
 .form-radio-input {
