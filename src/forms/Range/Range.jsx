@@ -44,6 +44,7 @@ export default function Range({ max = '100', min = '0', step, value, className =
 
     const sizeClass = {
         sm: 'range-sm',
+        default: '',
         lg: 'range-lg',
     }[size]
 
