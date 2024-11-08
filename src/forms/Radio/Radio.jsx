@@ -5,7 +5,7 @@ import './Radio.css'
 
 const RadioContext = createContext()
 
-const Radio = ({ children, name, color = 'default', size = '', onChange, defaultValue }) => {
+const Radio = ({ children, className = '', name, color = 'default', size = '', onChange, defaultValue }) => {
 
     const [selectedValue, setSelectedValue] = useState(defaultValue || '');
 
@@ -34,15 +34,15 @@ const Radio = ({ children, name, color = 'default', size = '', onChange, default
     }[size]
 
     return (
-        <RadioContext.Provider value={{ name, selectedValue, color, colorClass, size, sizeClass, onChange: handleChange }}>
+        <RadioContext.Provider value={{ name, className, selectedValue, color, colorClass, size, sizeClass, onChange: handleChange }}>
             {children}
         </RadioContext.Provider>
     )
 }
 
-const RadioItem = ({ children, value, className = '', label, disabled = ('' || useContext(FormContext)), ...props }) => {
+const RadioItem = ({ children, value, label, disabled = ('' || useContext(FormContext)), ...props }) => {
 
-    const { name, selectedValue, onChange, color, colorClass, size, sizeClass } = useContext(RadioContext)
+    const { name, className, selectedValue, onChange, color, colorClass, size, sizeClass } = useContext(RadioContext)
 
     const isChecked = selectedValue === value
 
