@@ -3,12 +3,18 @@ import { FormContext } from "../Form/Form"
 import Label from "../FormControl/Label"
 import './Select.css'
 
-export default function Select({ children, id, className = '', label = '', defaultValue, color = 'default' , rounded = 'rounded', size = 'default', value, disabled = ('' || useContext(FormContext)), ...props }) {
+export default function Select({ children, id, className = '', label = '', defaultValue, color = 'default', rounded = 'rounded', size = 'default', value, multiple, disabled = ('' || useContext(FormContext)), ...props }) {
 
     const [selected, setSelected] = useState(defaultValue)
 
     const onChangeSelect = (e) => {
-        setSelected(e.target.value)
+        if (multiple) {
+            const options = [...e.target.selectedOptions];
+            const values = options.map(option => option.value);
+            setSelected(values);
+        } else {
+            setSelected(e.target.value)
+        }
     }
 
     const roundedClass = {
@@ -51,6 +57,7 @@ export default function Select({ children, id, className = '', label = '', defau
                 value={selected}
                 disabled={disabled}
                 size={size}
+                multiple={multiple}
                 onChange={onChangeSelect}
             >
                 {children}
