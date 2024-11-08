@@ -4,7 +4,7 @@ import Label from "../FormControl/Label"
 import { FormContext } from "../Form/Form"
 import './Range.css'
 
-export default function Range({ max = '100', min = '0', step, value, className = '', color = '', label, disabled = ('' || useContext(FormContext)), size = '', reverse = '', ...props }) {
+export default function Range({ max = '100', min = '0', step, value, className = '', color = '', label, disabled = ('' || useContext(FormContext)), size = '', ...props }) {
 
     const [inputValue, setInputValue] = useState(value)
 
