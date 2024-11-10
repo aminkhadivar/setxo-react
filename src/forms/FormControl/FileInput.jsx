@@ -1,10 +1,12 @@
-import { forwardRef, useRef, useContext } from 'react'
+import { forwardRef, useRef, useContext , useId } from 'react'
 import { FormContext } from "../Form/Form"
 import Input from "./Input"
 import Label from "./Label"
 import './FileInput.css'
 
 export default forwardRef(function FileInput({ label = '', id, className = '', size = 'default', disabled = ('' || useContext(FormContext)), readOnly = '', ...props }, ref) {
+
+    const postFileInputId = useId()
 
     const input = ref ? ref : useRef()
 
@@ -17,15 +19,15 @@ export default forwardRef(function FileInput({ label = '', id, className = '', s
     return (
         <div className="group">
             {label &&
-                <Label className="ml-2" htmlFor={disabled ? null : id} value={label} />
+                <Label className={`ml-2 ${disabled  ? '' : ' cursor-pointer'}`} htmlFor={disabled ? null : postFileInputId} value={label} />
             }
             <span className="sr-only">Choose File</span>
-            <Input
+            <input
                 {...props}
-                id={id}
+                id={postFileInputId}
                 type="file"
                 label={label}
-                className={`${className && ` ` + className}` + ` ${sizeClass}`}
+                className={`form-control ${className && ` ` + className}` + ` ${sizeClass}` + ` ${disabled ? ' disabled' : ''}`}
                 ref={input}
                 size={size}
                 disabled={disabled}

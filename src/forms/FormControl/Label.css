@@ -3,3 +3,7 @@
 .form-label {
     @apply flex items-center font-medium text-sm text-zinc-500 dark:text-zinc-300 mb-2
 }
+
+.form-label.required {
+    @apply after:content-['*'] after:ml-0.5 after:text-red-500 dark:after:text-red-400
+}

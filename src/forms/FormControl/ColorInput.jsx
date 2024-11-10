@@ -1,11 +1,11 @@
-import { forwardRef, useRef, useState, useContext } from 'react'
+import { useState, useContext , useId } from 'react'
 import Label from "./Label"
 import { FormContext } from "../Form/Form"
 import './ColorInput.css'
 
-export default forwardRef(function ColorInput({ label = '', id, className = '', value, disabled = ('' || useContext(FormContext)), ...props }, ref) {
+export default function ColorInput({ label = '', id, className = '', value, disabled = ('' || useContext(FormContext)), ...props }) {
 
-    const input = ref ? ref : useRef()
+    const postColorInputId = useId()
 
     const [inputValue, setInputValue] = useState(value)
 
@@ -16,7 +16,7 @@ export default forwardRef(function ColorInput({ label = '', id, className = '', 
     return (
         <div className="form-color">
             {label &&
-                <Label htmlFor={disabled ? null : id} value={label} />
+                <Label className={disabled ? '' : 'cursor-pointer'} htmlFor={disabled ? null : postColorInputId} value={label} />
             }
             <div className="form-control-color-wrapper">
                 <input
@@ -24,7 +24,7 @@ export default forwardRef(function ColorInput({ label = '', id, className = '', 
                     type="color"
                     label={label}
                     className="form-control-color"
-                    id={id}
+                    id={postColorInputId}
                     value={inputValue || ''}
                     onChange={onChangeInput}
                     disabled={disabled}
@@ -32,4 +32,4 @@ export default forwardRef(function ColorInput({ label = '', id, className = '', 
             </div>
         </div>
     )
-})
+}

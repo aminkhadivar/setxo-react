@@ -1,5 +1,9 @@
 /* ------------- Form Control ------------- */
 
+.form-group {
+    @apply w-full
+}
+
 .form-control {
     @apply w-full block px-2 bg-white dark:bg-black/10 border-black/10 dark:border-gray-500 focus:bg-white dark:focus:bg-black/20 focus:border-gray-300 dark:focus:border-gray-400 focus:ring focus:ring-gray-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }

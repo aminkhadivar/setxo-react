@@ -1,8 +1,11 @@
-import { forwardRef, useEffect, useRef, useState, useContext } from 'react'
+import { forwardRef, useEffect, useRef, useState, useContext, useId } from 'react'
 import './FormControl.css'
 import { FormContext } from "../Form/Form"
+import Label from "./Label"
 
-export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', color = '', isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), readOnly = '', onChange = () => { }, ...props }, ref) {
+export default forwardRef(function Input({ as = 'text', label, id, type = 'text', className = '', rounded = 'rounded', size = 'default', color = '', isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), readOnly = '',required, onChange = () => { }, ...props }, ref) {
+
+    const postInputId = useId()
 
     const asClass = {
         text: 'form-control',
@@ -54,17 +57,24 @@ export default forwardRef(function Input({ as = 'text', type = 'text', className
     }[color]
 
     return (
-        <input
-            {...props}
-            type={type}
-            className={`${asClass}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}` +
-                `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled ? `${readOnly ? ' disabled-readonly' : ' disabled'}` : ''}`
+        <div className="form-group">
+            {label &&
+                <Label className={`${required && ` required`}`} htmlFor={disabled ? id : postInputId} value={label} />
             }
-            ref={input}
-            value={inputValue || ''}
-            onChange={onChangeInput}
-            placeholder={placeholder}
-            disabled={disabled}
-        />
+            <input
+                {...props}
+                type={type}
+                id={label ? postInputId : id}
+                className={`${asClass}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}` +
+                    `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled ? `${readOnly ? ' disabled-readonly' : ' disabled'}` : ''}`
+                }
+                ref={input}
+                value={inputValue || ''}
+                onChange={onChangeInput}
+                placeholder={placeholder}
+                disabled={disabled}
+                required={required}
+            />
+        </div>
     )
 })

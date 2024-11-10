@@ -1,10 +1,13 @@
-import { forwardRef, useEffect, useRef, useState, useContext } from 'react'
+import { forwardRef, useEffect, useRef, useState, useContext, useId } from 'react'
 import { FormContext } from "../Form/Form"
+import Label from "./Label"
 import './FormControl.css'
 
-export default forwardRef(function Textarea({ type = 'text' , color = '', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value, disabled = ('' || useContext(FormContext)), ...props }, ref) {
+export default forwardRef(function Textarea({ type = 'text', label, id, color = '', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value,required, disabled = ('' || useContext(FormContext)), ...props }, ref) {
 
     const [textareaValue, setTextareaValue] = useState(value)
+
+    const postTextareaId = useId()
 
     const textarea = ref ? ref : useRef()
 
@@ -37,19 +40,26 @@ export default forwardRef(function Textarea({ type = 'text' , color = '', classN
     }[color]
 
     return (
-        <textarea
-            {...props}
-            type={type}
-            className={`form-control` + `${color && ` ` + colorClass}` +
-                `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled ? ' disabled'
-                : ''}` + `${resizeabled ? ' resize' : ' resize-none'}`
+        <div className="form-group">
+            {label &&
+                <Label className={`${required && ` required`}`} htmlFor={disabled ? id : postTextareaId} value={label} />
             }
-            ref={textarea}
-            rows={rows}
-            value={textareaValue || ''}
-            onChange={e => setTextareaValue(e.target.value)}
-            placeholder={placeholder}
-            disabled={disabled}
-        />
+            <textarea
+                {...props}
+                type={type}
+                id={label ? postTextareaId : id}
+                className={`form-control` + `${color && ` ` + colorClass}` +
+                    `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled ? ' disabled'
+                        : ''}` + `${resizeabled ? ' resize' : ' resize-none'}`
+                }
+                ref={textarea}
+                rows={rows}
+                value={textareaValue || ''}
+                onChange={e => setTextareaValue(e.target.value)}
+                placeholder={placeholder}
+                disabled={disabled}
+                required={required}
+            />
+        </div>
     )
 })
