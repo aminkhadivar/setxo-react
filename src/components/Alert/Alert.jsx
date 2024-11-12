@@ -67,7 +67,7 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
             <div
                 {...props}
                 id={id}
-                className={`alert ${color && colorClass} ` + className + `${borderColor && borderColorClass}` + `${rounded && ` ` + roundedClass}` + `${accentBorder && ` ` + accentBorderClass}`
+                className={`alert ${color && ` ` + colorClass}` + `${className && ` ` + className}` + `${borderColor && ` ` + borderColorClass}` + `${rounded && ` ` + roundedClass}` + `${accentBorder && ` ` + accentBorderClass}`
                 }
                 role="alert"
             >

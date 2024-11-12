@@ -1,19 +1,21 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useId } from 'react'
 import { FormContext } from "../Form/Form"
 import Label from "../FormControl/Label"
 import './Select.css'
 
-export default function Select({ children, id, className = '', label = '', defaultValue, color = 'default', rounded = 'rounded', size = 'default', value, multiple, disabled = ('' || useContext(FormContext)), ...props }) {
+export default function Select({ children, className = '', label = '', defaultValue, color = 'default', rounded = 'rounded', size = 'default', value, multiple, disabled = ('' || useContext(FormContext)), onChange = () => { }, ...props }) {
+
+    const postSelectId = useId()
 
     const [selected, setSelected] = useState(defaultValue)
 
     const onChangeSelect = (e) => {
         if (multiple) {
-            const options = [...e.target.selectedOptions];
-            const values = options.map(option => option.value);
-            setSelected(values);
+            const options = [...e.target.selectedOptions]
+            const values = options.map(option => option.value)
+            setSelected(values) || onChange(e)
         } else {
-            setSelected(e.target.value)
+            setSelected(e.target.value) || onChange(e)
         }
     }
 
@@ -48,11 +50,13 @@ export default function Select({ children, id, className = '', label = '', defau
 
     return (
         <div className="form-select-wrapp">
-            <Label htmlFor={id} value={label} />
+            {label &&
+                <Label htmlFor={postSelectId} value={label} />
+            }
             <select
                 {...props}
-                id={id}
-                className={`form-select` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`}
+                id={postSelectId}
+                className={`form-select` + `${className && ` ` + className}` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`}
                 aria-label={label}
                 value={selected}
                 disabled={disabled}
