@@ -105,89 +105,89 @@
 }
 
 .btn-outline-default {
-    @apply bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-100 focus:bg-gray-100 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 border border-gray-100 hover:border-gray-200 dark:border-gray-600 dark:hover:border-gray-500 stroke-gray-500 hover:stroke-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-gray-100 dark:[&.active]:bg-gray-800 [&.active]:border-gray-200 dark:[&.active]:border-gray-500 dark:active:bg-gray-800 dark:focus:bg-gray-800 dark:active:text-gray-200 dark:focus:text-gray-200
+    @apply bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-100 focus:bg-gray-100 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 border border-gray-100 hover:border-gray-200 dark:border-gray-600 dark:hover:border-gray-500 stroke-gray-500 hover:stroke-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-gray-100 dark:[&.active]:bg-gray-800 [&.active]:border-gray-200 dark:[&.active]:border-gray-500 dark:active:bg-gray-800 dark:focus:bg-gray-800 dark:active:text-gray-200 dark:focus:text-gray-200
 }
 
 .btn-outline-light {
-    @apply bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-300 active:bg-gray-100 focus:bg-gray-100 text-gray-400 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-800 border border-gray-200 hover:border-gray-200 dark:border-gray-300 dark:hover:border-gray-300 stroke-gray-200 hover:stroke-gray-800 dark:[&.active]:text-black dark:[&.active]:hover:text-black [&.active]:bg-gray-200 dark:[&.active]:bg-gray-300 [&.active]:border-gray-200 dark:[&.active]:border-gray-300 dark:active:bg-gray-200 dark:focus:bg-gray-200 dark:active:text-gray-800 focus:text-gray-500 active:text-gray-500 dark:focus:text-gray-800
+    @apply bg-transparent hover:bg-gray-100 dark:hover:bg-gray-300 active:bg-gray-100 focus:bg-gray-100 text-gray-300 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-800 border border-gray-200 hover:border-gray-200 dark:border-gray-300 dark:hover:border-gray-300 stroke-gray-200 hover:stroke-gray-800 dark:[&.active]:text-black dark:[&.active]:hover:text-black [&.active]:bg-gray-200 dark:[&.active]:bg-gray-300 [&.active]:border-gray-200 dark:[&.active]:border-gray-300 dark:active:bg-gray-200 dark:focus:bg-gray-200 dark:active:text-gray-800 focus:text-gray-500 active:text-gray-500 dark:focus:text-gray-800
 }
 
 .btn-outline-gray {
-    @apply bg-white dark:bg-gray-900 hover:bg-gray-500 dark:hover:bg-gray-700 active:bg-gray-600 focus:bg-gray-600 text-gray-500 dark:text-gray-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-gray-100 border border-gray-400 hover:border-gray-500 dark:border-gray-700 dark:hover:border-gray-700 stroke-gray-500 hover:stroke-white
+    @apply bg-transparent hover:bg-gray-500 dark:hover:bg-gray-700 active:bg-gray-600 focus:bg-gray-600 text-gray-500 dark:text-gray-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-gray-100 border border-gray-400 hover:border-gray-500 dark:border-gray-700 dark:hover:border-gray-700 stroke-gray-500 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-gray-500 dark:[&.active]:bg-gray-700 [&.active]:border-gray-500 dark:[&.active]:border-gray-700
 }
 
 .btn-outline-dark {
-    @apply bg-white dark:bg-gray-900 hover:bg-gray-800 dark:hover:bg-gray-800 active:bg-gray-800 focus:bg-gray-800 text-gray-800 dark:text-gray-300 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-gray-800 hover:border-gray-800 dark:border-gray-800 dark:hover:border-gray-800 stroke-gray-300 hover:stroke-white
+    @apply bg-transparent hover:bg-gray-800 dark:hover:bg-gray-800 active:bg-gray-800 focus:bg-gray-800 text-gray-800 dark:text-gray-300 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-gray-800 hover:border-gray-800 dark:border-gray-800 dark:hover:border-gray-800 stroke-gray-300 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-gray-800 dark:[&.active]:bg-gray-800 [&.active]:border-gray-800 dark:[&.active]:border-gray-800
 }
 
 .btn-outline-primary {
-    @apply bg-white dark:bg-gray-900 hover:bg-blue-600 dark:hover:bg-blue-500 active:bg-blue-700 focus:bg-blue-700 text-blue-600 dark:text-blue-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-blue-600 hover:border-blue-600 dark:border-blue-500 dark:hover:border-blue-500 stroke-blue-500 hover:stroke-white
+    @apply bg-transparent hover:bg-blue-600 dark:hover:bg-blue-500 active:bg-blue-700 focus:bg-blue-700 text-blue-600 dark:text-blue-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-blue-600 hover:border-blue-600 dark:border-blue-500 dark:hover:border-blue-500 stroke-blue-500 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-blue-600 dark:[&.active]:bg-blue-500 [&.active]:border-blue-600 dark:[&.active]:border-blue-500
 }
 
 .btn-outline-success {
-    @apply bg-white dark:bg-gray-900 hover:bg-green-600 dark:hover:bg-green-600 active:bg-green-700 focus:bg-green-700 text-green-600 dark:text-green-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-green-600 hover:border-green-600 dark:border-green-500 dark:hover:border-green-600 stroke-green-500 hover:stroke-white
+    @apply bg-transparent hover:bg-green-600 dark:hover:bg-green-600 active:bg-green-700 focus:bg-green-700 text-green-600 dark:text-green-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-green-600 hover:border-green-600 dark:border-green-500 dark:hover:border-green-600 stroke-green-500 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-green-600 dark:[&.active]:bg-green-600 [&.active]:border-green-600 dark:[&.active]:border-green-600
 }
 
 .btn-outline-danger {
-    @apply bg-white dark:bg-gray-900 hover:bg-red-600 dark:hover:bg-red-500 active:bg-red-700 focus:bg-red-700 text-red-600 dark:text-red-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-red-600 hover:border-red-600 dark:border-red-500 dark:hover:border-red-500 stroke-red-500 hover:stroke-white
+    @apply bg-transparent hover:bg-red-600 dark:hover:bg-red-500 active:bg-red-700 focus:bg-red-700 text-red-600 dark:text-red-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-red-600 hover:border-red-600 dark:border-red-500 dark:hover:border-red-500 stroke-red-500 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-red-600 dark:[&.active]:bg-red-600 [&.active]:border-red-600 dark:[&.active]:border-red-600
 }
 
 .btn-outline-warning {
-    @apply bg-white dark:bg-gray-900 hover:bg-amber-500 dark:hover:bg-amber-600 active:bg-amber-600 focus:bg-amber-600 text-amber-500 dark:text-amber-500 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-amber-500 hover:border-amber-500 dark:border-amber-500 dark:hover:border-amber-600 stroke-amber-500 hover:stroke-white
+    @apply bg-transparent hover:bg-amber-500 dark:hover:bg-amber-600 active:bg-amber-600 focus:bg-amber-600 text-amber-500 dark:text-amber-500 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-amber-500 hover:border-amber-500 dark:border-amber-500 dark:hover:border-amber-600 stroke-amber-500 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-amber-500 dark:[&.active]:bg-amber-600 [&.active]:border-amber-500 dark:[&.active]:border-amber-600
 }
 
 .btn-outline-info {
-    @apply bg-white dark:bg-gray-900 hover:bg-cyan-500 dark:hover:bg-cyan-600 active:bg-cyan-600 focus:bg-cyan-600 text-cyan-500 dark:text-cyan-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-cyan-500 hover:border-cyan-500 dark:border-cyan-500 dark:hover:border-cyan-600 stroke-cyan-500 hover:stroke-white
+    @apply bg-transparent hover:bg-cyan-500 dark:hover:bg-cyan-600 active:bg-cyan-600 focus:bg-cyan-600 text-cyan-500 dark:text-cyan-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-cyan-500 hover:border-cyan-500 dark:border-cyan-500 dark:hover:border-cyan-600 stroke-cyan-500 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-cyan-500 dark:[&.active]:bg-cyan-600 [&.active]:border-cyan-500 dark:[&.active]:border-cyan-600
 }
 
 .btn-outline-purple {
-    @apply bg-white dark:bg-gray-900 hover:bg-setxo-600 dark:hover:bg-setxo-500 active:bg-setxo-700 focus:bg-setxo-700 text-setxo-600 dark:text-setxo-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-setxo-600 hover:border-setxo-600 dark:border-setxo-500 dark:hover:border-setxo-500 stroke-setxo-600 hover:stroke-white
+    @apply bg-transparent hover:bg-setxo-600 dark:hover:bg-setxo-500 active:bg-setxo-700 focus:bg-setxo-700 text-setxo-600 dark:text-setxo-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-setxo-600 hover:border-setxo-600 dark:border-setxo-500 dark:hover:border-setxo-500 stroke-setxo-600 hover:stroke-white
     [&.active]:text-white [&.active]:hover:text-white dark:[&.active]:text-white dark:[&.active]:hover:text-white [&.active]:bg-setxo-600 dark:[&.active]:bg-setxo-500 [&.active]:border-setxo-600 dark:[&.active]:border-setxo-500
 }
 
 .shadow-default {
-    @apply shadow-lg hover:shadow-gray-400/50 dark:shadow-transparent dark:hover:shadow-gray-700/70
+    @apply shadow-md hover:shadow-gray-400/50 dark:shadow-transparent dark:hover:shadow-gray-700/70
 }
 
 .shadow-light {
-    @apply shadow-lg hover:shadow-gray-400/50 dark:shadow-gray-500/50 dark:hover:shadow-gray-500/70
+    @apply shadow-md hover:shadow-gray-400/50 dark:shadow-gray-500/50 dark:hover:shadow-gray-500/70
 }
 
 .shadow-gray {
-    @apply shadow-lg shadow-gray-500/50 hover:shadow-gray-700/50 dark:shadow-gray-700/50 dark:hover:shadow-gray-600/70
+    @apply shadow-md shadow-gray-500/50 hover:shadow-gray-700/50 dark:shadow-gray-700/50 dark:hover:shadow-gray-600/70
 }
 
 .shadow-dark {
-    @apply shadow-lg shadow-gray-700/50 hover:shadow-gray-900/50 dark:shadow-gray-700/50 dark:hover:shadow-gray-600/70
+    @apply shadow-md shadow-gray-700/50 hover:shadow-gray-900/50 dark:shadow-gray-700/50 dark:hover:shadow-gray-600/70
 }
 
 .shadow-primary {
-    @apply shadow-lg shadow-blue-400/50 hover:shadow-blue-600/50 dark:shadow-blue-700/50 dark:hover:shadow-blue-600/50
+    @apply shadow-md shadow-blue-400/50 hover:shadow-blue-600/50 dark:shadow-blue-700/50 dark:hover:shadow-blue-600/50
 }
 
 .shadow-success {
-    @apply shadow-lg shadow-green-400/50 hover:shadow-green-600/50 dark:shadow-green-700/50 dark:hover:shadow-green-600/50
+    @apply shadow-md shadow-green-400/50 hover:shadow-green-600/50 dark:shadow-green-700/50 dark:hover:shadow-green-600/50
 }
 
 .shadow-danger {
-    @apply shadow-lg shadow-red-400/50 hover:shadow-red-600/50 dark:shadow-red-700/50 dark:hover:shadow-red-600/50
+    @apply shadow-md shadow-red-400/50 hover:shadow-red-600/50 dark:shadow-red-700/50 dark:hover:shadow-red-600/50
 }
 
 .shadow-warning {
-    @apply shadow-lg shadow-amber-400/50 hover:shadow-amber-600/50 dark:shadow-amber-700/50 dark:hover:shadow-amber-600/50
+    @apply shadow-md shadow-amber-400/50 hover:shadow-amber-600/50 dark:shadow-amber-700/50 dark:hover:shadow-amber-600/50
 }
 
 .shadow-info {
-    @apply shadow-lg shadow-cyan-400/50 hover:shadow-cyan-600/50 dark:shadow-cyan-700/50 dark:hover:shadow-cyan-600/50
+    @apply shadow-md shadow-cyan-400/50 hover:shadow-cyan-600/50 dark:shadow-cyan-700/50 dark:hover:shadow-cyan-600/50
 }
 
 .shadow-purple {
-    @apply shadow-lg shadow-setxo-400/50 hover:shadow-setxo-600/50 dark:shadow-setxo-700/50 dark:hover:shadow-setxo-600/50
+    @apply shadow-md shadow-setxo-400/50 hover:shadow-setxo-600/50 dark:shadow-setxo-700/50 dark:hover:shadow-setxo-600/50
 }
