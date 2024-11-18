@@ -3,7 +3,7 @@ import { FormContext } from "../Form/Form"
 import Label from "../FormControl/Label"
 import './Select.css'
 
-export default function Select({ children, className = '', label = '', defaultValue, color = 'default', rounded = 'rounded', size = 'default', value, multiple, disabled = ('' || useContext(FormContext)), onChange = () => { }, ...props }) {
+export default function Select({ children, id, className = '', label = '', defaultValue, color = 'default', rounded = 'rounded', size = 'default', value, multiple, disabled = ('' || useContext(FormContext)), onChange = () => { }, ...props }) {
 
     const postSelectId = useId()
 
@@ -51,11 +51,11 @@ export default function Select({ children, className = '', label = '', defaultVa
     return (
         <div className="form-select-wrapp">
             {label &&
-                <Label htmlFor={postSelectId} value={label} />
+                <Label htmlFor={postSelectId || id} value={label} />
             }
             <select
                 {...props}
-                id={postSelectId}
+                id={postSelectId || id}
                 className={`form-select` + `${className && ` ` + className}` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`}
                 aria-label={label}
                 value={selected}
