@@ -25,6 +25,24 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
         lightPurple: 'alert-light-purple',
     }[color]
 
+    const closeButtonColorClass = {
+        light: 'light',
+        gray: 'gray',
+        dark: 'dark',
+        primary: 'primary',
+        success: 'success',
+        danger: 'danger',
+        warning: 'warning',
+        info: 'info',
+        purple: 'purple',
+        lightPrimary: 'primary',
+        lightSuccess: 'success',
+        lightDanger: 'danger',
+        lightWarning: 'warning',
+        lightInfo: 'info',
+        lightPurple: 'purple',
+    }[color]
+
     const borderColorClass = {
         light: 'alert-outline-light',
         gray: 'alert-outline-gray',
@@ -75,7 +93,7 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
                     {children}
                 </div>
                 {dimissable &&
-                    <CloseButton rounded={rounded} color={`${(color || borderColor) ? (color || borderColor) : 'light'}`} onClick={() => { setShow(false) }} />
+                    <CloseButton rounded={rounded} color={`${(color || borderColor) ? (closeButtonColorClass || borderColor) : 'light'}`} onClick={() => { setShow(false) }} />
                 }
             </div>
         </Transition>
