@@ -2,7 +2,7 @@ import { useState, Fragment } from "react"
 import { Transition } from '@headlessui/react'
 import './Popover.css'
 
-export default function Popovers({ content, className = '', children, placement = 'top', color = 'dark', closeable = false }) {
+export default function Popover({ content, className = '', children, placement = 'top', color = 'dark', closeable = false }) {
 
     const [show, setShow] = useState(false)
 
