@@ -45,8 +45,8 @@ export default function Switch({ children, id, className = '', color = '', label
                     onChange={toggleSwitch}
                 />
                 <span className={`toggle-switch` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' switch-default'}` + `${size && ` ` + sizeClass}`}></span>
+                {children}
             </Label>
-            {children}
         </div>
     )
 }
