@@ -33,11 +33,11 @@ export default function Switch({ children, id, className = '', color = '', label
 
     return (
         <div className="form-switch">
-            <Label htmlFor={postSwitchId || id} value={label} className={`${reverse && ` switch-reverse`}` + `${disabled ? ' disabled' : ''}`}>
+            <Label htmlFor={id || postSwitchId} value={label} className={`${reverse && ` switch-reverse`}` + `${disabled ? ' disabled' : ''}`}>
                 <input
                     {...props}
                     type="checkbox"
-                    id={postSwitchId || id}
+                    id={id || postSwitchId}
                     className={`form-switch-input peer`}
                     role="switch"
                     defaultChecked={checked}

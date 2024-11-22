@@ -51,11 +51,11 @@ export default function Select({ children, id, className = '', label = '', defau
     return (
         <div className="form-select-wrapp">
             {label &&
-                <Label htmlFor={postSelectId || id} value={label} />
+                <Label htmlFor={id || postSelectId} value={label} />
             }
             <select
                 {...props}
-                id={postSelectId || id}
+                id={id || postSelectId}
                 className={`form-select` + `${className && ` ` + className}` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`}
                 aria-label={label}
                 value={selected}

@@ -1,4 +1,4 @@
-import { useState, useContext , useId } from 'react'
+import { useState, useContext, useId } from 'react'
 import Label from "./Label"
 import { FormContext } from "../Form/Form"
 import './ColorInput.css'
@@ -16,7 +16,7 @@ export default function ColorInput({ label = '', id, className = '', value, disa
     return (
         <div className="form-color">
             {label &&
-                <Label className={disabled ? '' : 'cursor-pointer'} htmlFor={disabled ? null : postColorInputId} value={label} />
+                <Label className={disabled ? '' : 'cursor-pointer'} htmlFor={disabled ? null : (id || postColorInputId)} value={label} />
             }
             <div className="form-control-color-wrapper">
                 <input
@@ -24,7 +24,7 @@ export default function ColorInput({ label = '', id, className = '', value, disa
                     type="color"
                     label={label}
                     className="form-control-color"
-                    id={postColorInputId}
+                    id={id || postColorInputId}
                     value={inputValue || ''}
                     onChange={onChangeInput}
                     disabled={disabled}
