@@ -16,7 +16,6 @@ export default function Drawer({ children, className = '', title, content, foote
     const close = () => {
         if (closeable) {
             setshowingDrawer(false) || onClose()
-            getBody.style.removeProperty("overflow")
         } else {
             var getDrawerDialog = document.querySelector('.drawer-dialog')
             getDrawerDialog.classList.add("backdrop-effect")
@@ -28,7 +27,6 @@ export default function Drawer({ children, className = '', title, content, foote
 
     const closeButton = () => {
         setshowingDrawer(false) || onClose()
-        getBody.style.removeProperty("overflow")
     }
 
     const alignClass = {

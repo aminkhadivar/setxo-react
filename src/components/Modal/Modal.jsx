@@ -16,7 +16,6 @@ export default function Modal({ content, trigger, title, footer, id, className =
     const close = () => {
         if (closeable) {
             setshowingModal(false) || onClose()
-            getBody.style.removeProperty("overflow")
         } else {
             var element = document.querySelector('.modal-dialog')
             element.classList.add("backdrop-effect")
@@ -28,7 +27,6 @@ export default function Modal({ content, trigger, title, footer, id, className =
 
     const closeButton = () => {
         setshowingModal(false) || onClose()
-        getBody.style.removeProperty("overflow")
     }
 
     const maxWidthClass = {
