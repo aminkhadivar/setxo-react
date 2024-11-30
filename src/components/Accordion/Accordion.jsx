@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext, useContext } from 'react'
+import { useEffect, useState, createContext, useContext, useId } from 'react'
 import { Transition } from '@headlessui/react'
 import { ArrowDown2 } from 'iconsax-react'
 import './Accordion.css'
@@ -26,17 +26,20 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
         custom: '',
     }[color]
 
-    const [items, setItems] = useState(data)
+    const [items, setItems] = useState(
+        data.map((item, index) => ({
+            ...item,
+            uniqueId: `${item.id || `accordion-item-${index + 1}`}`, // Append the accordion ID to each item ID
+        }))
+    )
 
     const handleClick = (id) => {
         setItems(
             items.map((item) =>
-                item.id === id ? { ...item, show: !item.show } : { ...item, show: false }
+                item.uniqueId === id ? { ...item, show: !item.show } : { ...item, show: false }
             )
         )
     }
-
-
 
     return (
         <AccordionContext.Provider value={{ className, children, multiple, colorClass }}>
@@ -44,17 +47,17 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
                 {children ||
                     <>
                         {/* Use data array */}
-                        {items.map(({ title, id, show, content }) => (
+                        {items.map(({ title, uniqueId, id, show, content }) => (
                             <div className="accordion-item"
-                                id={id}
-                                key={id}
+                                id={id || uniqueId}
+                                key={id || uniqueId}
                             >
                                 <button
                                     className={`accordion-button ${show ? (colorClass + (className && ` ${className}`)) : 'accordion-default'}`}
                                     type="button"
                                     aria-expanded={show ? 'true' : 'false'}
                                     show={show.toString()}
-                                    onClick={() => handleClick(id)}
+                                    onClick={() => handleClick(uniqueId)}
                                 >
                                     <div className="font-medium text-base">{title}</div>
                                     <div className="flex items-center ml-2">
@@ -89,6 +92,8 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
 
 const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
+    const postAccordionId = useId()
+
     const { multiple, colorClass, className } = useContext(AccordionContext)
 
     const [open, setOpen] = useState(false)
@@ -100,11 +105,7 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
     }, [])
 
     const toggleOpen = () => {
-        if (multiple) {
-            setOpen((previousState) => !previousState)
-        } else {
-            handleClick()
-        }
+        setOpen((previousState) => !previousState)
     }
 
     return (
@@ -112,8 +113,8 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
             {/* Multiple props for Accordion component */}
             <div
                 className="accordion-item"
-                id={id}
-                key={id}>
+                id={id || postAccordionId}
+                key={id || postAccordionId}>
                 <button
                     className={`accordion-button ${open ? (colorClass + (className && ` ${className}`)) : 'accordion-default'}`}
                     type="button"
