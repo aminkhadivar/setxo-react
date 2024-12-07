@@ -141,7 +141,7 @@ nav {
 }
 
 .nav-pills .nav-link {
-    @apply grid px-4 h-10 text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-600 active:bg-gray-300 focus:bg-gray-300 active:text-gray-800 duration-300
+    @apply grid px-4 h-10 text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-600 active:bg-gray-300 focus:bg-gray-300 active:text-gray-800 duration-300
 }
 
 .nav-pills .nav-link.active {

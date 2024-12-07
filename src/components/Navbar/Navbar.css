@@ -145,3 +145,7 @@
 .navbar-dark .nav .nav-link:not(.nav-link.active) {
     @apply text-gray-600 hover:text-gray-800
 }
+
+.sr-only {
+    @apply w-px h-px overflow-hidden
+}
