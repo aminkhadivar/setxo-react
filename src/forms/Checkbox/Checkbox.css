@@ -5,7 +5,7 @@
 }
 
 .form-check-input {
-    @apply bg-transparent rounded-sm focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 h-5 w-5
+    @apply bg-transparent rounded-sm focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 h-5 w-5 cursor-pointer
 }
 
 .form-check .form-label {
