@@ -1,7 +1,7 @@
 {
-  "name": "setxo-components",
-  "version": "1.0.2",
-  "description": "React Components with Tailwind CSS",
+  "name": "setxo-react",
+  "version": "1.0.0",
+  "description": "React and Tailwind CSS UI Components",
   "type": "module",
   "main": "index.js",
   "author": "Amin Khadivar <amin.khadivar@gmail.com>",
@@ -37,8 +37,10 @@
     "tailwindcss",
     "tailwind components",
     "component",
+    "laravel",
     "inertiajs",
-    "setxo"
+    "setxo",
+    "setxo react"
   ],
   "peerDependencies": {
     "@inertiajs/react": "^1.2.0",
