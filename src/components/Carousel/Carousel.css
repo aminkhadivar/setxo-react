@@ -15,7 +15,7 @@
 }
 
 .carousel-caption {
-    @apply absolute bottom-16 mx-auto w-full z-50 px-24 
+    @apply absolute bottom-16 mx-auto w-full z-50 px-16 
 }
 
 .carousel-caption-container {
@@ -31,11 +31,11 @@
 }
 
 .carousel-control-prev {
-    @apply absolute left-0 top-0 h-full px-6 bg-gradient-to-r from-black/40 to-transparent text-gray-100/80 hover:text-gray-100 hover:bg-gradient-to-r hover:from-black/50 hover:to-transparent duration-300
+    @apply absolute left-0 top-0 h-full px-3 bg-gradient-to-r from-black/40 to-transparent text-gray-100/80 hover:text-gray-100 hover:bg-gradient-to-r hover:from-black/50 hover:to-transparent duration-300
 }
 
 .carousel-control-next {
-    @apply absolute right-0 top-0 h-full px-6 bg-gradient-to-r from-transparent to-black/40 text-gray-100/80 hover:text-gray-100 hover:bg-gradient-to-r hover:from-transparent hover:to-black/60 duration-300
+    @apply absolute right-0 top-0 h-full px-3 bg-gradient-to-r from-transparent to-black/40 text-gray-100/80 hover:text-gray-100 hover:bg-gradient-to-r hover:from-transparent hover:to-black/60 duration-300
 }
 
 .carousel-indicators {
@@ -51,11 +51,11 @@
 }
 
 .carousel-indicator-item {
-    @apply transition-all w-4 h-4 rounded-full bg-gray-500/50 dark:bg-white/60 duration-300
+    @apply transition-all w-3 h-3 rounded-full bg-gray-500/50 dark:bg-white/60 duration-300
 }
 
 .carousel-indicator-item.active {
-    @apply bg-gray-600 dark:bg-white px-4 duration-300
+    @apply bg-gray-600 dark:bg-white px-3 duration-300
 }
 
 .carousel-primary .carousel-indicator-item.active {
