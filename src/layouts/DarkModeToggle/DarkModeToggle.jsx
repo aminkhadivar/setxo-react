@@ -54,13 +54,13 @@ export default function DarkModeToggle() {
             </Dropdown.Trigger>
             <Dropdown.Content width="120">
                 <div className="flex flex-col gap-2 p-2">
-                    <button className={`flex items-center w-full text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == 'light') ? 'bg-zinc-100 !text-zinc-800' : ''}`} onClick={switchLightTheme}>
+                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == 'light') ? 'bg-zinc-100 !text-zinc-800' : ''}`} onClick={switchLightTheme}>
                         <Sun1 size={20} />Light
                     </button>
-                    <button className={`flex items-center w-full text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == 'dark') ? 'bg-zinc-600 !text-zinc-100' : ''}`} onClick={switchDarkTheme}>
+                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == 'dark') ? 'bg-zinc-600 !text-zinc-100' : ''}`} onClick={switchDarkTheme}>
                         <Moon size={20} />Dark
                     </button>
-                    <button className={`flex items-center w-full text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == null) ? 'bg-zinc-100 dark:bg-zinc-600 !text-zinc-100' : ''}`} onClick={switchSystemTheme}>
+                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == null) ? 'bg-zinc-100 dark:bg-zinc-600 !text-zinc-100' : ''}`} onClick={switchSystemTheme}>
                         <MaskLeft size={20} />System
                     </button>
                 </div>
