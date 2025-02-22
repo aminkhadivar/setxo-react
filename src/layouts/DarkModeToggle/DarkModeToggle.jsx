@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { Moon, Sun1, MaskLeft } from 'iconsax-react'
-import Dropdown from '../components/Dropdown/Dropdown'
-import { ThemeContext } from "../layout/Setxo"
+import Dropdown from '../../components/Dropdown/Dropdown'
+import { ThemeContext } from "../Setxo/Setxo"
 
 export default function DarkModeToggle() {
 
