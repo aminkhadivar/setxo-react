@@ -55,7 +55,7 @@ const RadioItem = ({ children, value, label, disabled = ('' || useContext(FormCo
                     value={value}
                     className={`form-radio-input` + `${className && ` ` + className}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}`
                     }
-                    checked={isChecked}
+                    defaultChecked={isChecked}
                     disabled={disabled}
                     onChange={() => onChange(value)}
                 />
