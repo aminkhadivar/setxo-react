@@ -5,7 +5,7 @@
 }
 
 .alert-content {
-    @apply flex flex-1 items-center
+    @apply flex flex-1 gap-2 items-center
 }
 
 .alert-light {

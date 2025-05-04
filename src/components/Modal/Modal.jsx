@@ -1,9 +1,9 @@
-import { Fragment , useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
 import CloseButton from "../CloseButton/CloseButton"
 import './Modal.css'
 
-export default function Modal({ content, trigger, title, footer, id, className = '', show = false, centered = '', bodyScrollable = '', contentScrollable = '', size = 'md', closeable = true, onClose = () => { }, ...props }) {
+export default function Modal({ content, trigger, title, footer, id, className = '', dir = '', show = false, centered = '', bodyScrollable = '', contentScrollable = '', size = 'md', closeable = true, onClose = () => { }, ...props }) {
 
     const getBody = document.querySelector("body")
 
@@ -50,6 +50,7 @@ export default function Modal({ content, trigger, title, footer, id, className =
                     id={id}
                     className={`modal`}
                     onClose={close}
+                    dir={dir}
                 >
                     <TransitionChild
                         as={Fragment}

@@ -8,6 +8,10 @@
     @apply flex items-center
 }
 
+.drop-trigger * {
+    @apply flex items-center gap-2
+}
+
 .dropdown-start {
     @apply top-full mt-2 origin-top-left left-0
 }

@@ -3,7 +3,7 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/re
 import CloseButton from "../CloseButton/CloseButton"
 import './Drawer.css'
 
-export default function Drawer({ children, className = '', title, content, footer, trigger, show = false, width = '', placement = 'top', closeable = true, onClose = () => { }, ...props }) {
+export default function Drawer({ children, className = '', title, content, footer, trigger, show = false, width = '', placement = 'top', dir = '', closeable = true, onClose = () => { }, ...props }) {
 
     const getBody = document.querySelector("body")
 
@@ -92,6 +92,7 @@ export default function Drawer({ children, className = '', title, content, foote
                     as="div"
                     className="drawer"
                     onClose={close}
+                    dir={dir}
                 >
                     <TransitionChild
                         as={Fragment}

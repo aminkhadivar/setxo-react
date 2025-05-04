@@ -3,19 +3,19 @@
 }
 
 .btn-group button:not(:last-child) {
-    @apply rounded-r-none
+    @apply ltr:rounded-r-none rtl:rounded-l-none
 }
 
 .btn-group button:not(:first-child) {
-    @apply rounded-l-none border-l-0
+    @apply ltr:rounded-l-none ltr:border-l-0 rtl:rounded-r-none rtl:border-r-0
 }
 
 .btn-group a:not(:last-child) {
-    @apply rounded-r-none
+    @apply ltr:rounded-r-none rtl:rounded-l-none
 }
 
 .btn-group a:not(:first-child) {
-    @apply rounded-l-none
+    @apply ltr:rounded-l-none rtl:rounded-r-none
 }
 
 .btn-group-vertical {

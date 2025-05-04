@@ -2,7 +2,7 @@ import { useState, Fragment } from "react"
 import { Transition } from '@headlessui/react'
 import './Popover.css'
 
-export default function Popover({ content, className = '', children, placement = 'top', color = 'dark', closeable = false }) {
+export default function Popover({ content, className = '', children, placement = 'top', color = 'dark', dir = '', closeable = false }) {
 
     const [show, setShow] = useState(false)
 
@@ -58,8 +58,8 @@ export default function Popover({ content, className = '', children, placement =
                     leaveFrom="opacity-100 sm:scale-100 translate-y-0"
                     leaveTo={`opacity-0 sm:scale-95 ${translateClass}`}
                 >
-                    <div className={`popover ${placementClass}` + ` ${colorClass}` + className} >
-                        <div className="popover-content">
+                    <div className={`popover ${placementClass}` + ` ${colorClass}` + className}>
+                        <div className="popover-content" dir={dir}>
                             {content}
                         </div>
                     </div>

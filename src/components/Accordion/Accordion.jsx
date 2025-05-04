@@ -60,7 +60,7 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
                                     onClick={() => handleClick(uniqueId)}
                                 >
                                     <div className="font-medium text-base">{title}</div>
-                                    <div className="flex items-center ml-2">
+                                    <div className="flex items-center">
                                         <ArrowDown2
                                             className={`h-5 w-5 ${show ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
                                         />
@@ -122,7 +122,7 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                     onClick={toggleOpen}
                 >
                     <div className="font-medium text-base">{title}</div>
-                    <div className="flex items-center ml-2">
+                    <div className="flex items-center">
                         <ArrowDown2
                             className={`h-5 w-5 ${open ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
                         />
