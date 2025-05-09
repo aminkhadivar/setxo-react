@@ -5,35 +5,135 @@
 }
 
 .divider-vertical {
-    @apply flex border-r h-auto
+    @apply flex border-r border-t-0 h-auto
+}
+
+hr.divider-vertical.divider-sm {
+    @apply border-r
+}
+
+hr.divider-vertical.divider-md {
+    @apply border-r-2
+}
+
+hr.divider-vertical.divider-lg {
+    @apply border-r-4
+}
+
+hr.divider-vertical.divider-xl {
+    @apply border-r-8
 }
 
 .divider-wrapper {
     @apply flex items-center
 }
 
+hr.divider-horizontal.divider-sm {
+    @apply border-t
+}
+
+.divider-sm::before {
+    @apply border-t
+}
+
+.divider-sm::after {
+    @apply border-t
+}
+
+hr.divider-horizontal.divider-md {
+    @apply border-t-2
+}
+
+.divider-md::before {
+    @apply border-t-2
+}
+
+.divider-md::after {
+    @apply border-t-2
+}
+
+hr.divider-horizontal.divider-lg {
+    @apply border-t-4
+}
+
+.divider-lg::before {
+    @apply border-t-4
+}
+
+.divider-lg::after {
+    @apply border-t-4
+}
+
+hr.divider-horizontal.divider-xl {
+    @apply border-t-8
+}
+
+.divider-xl::before {
+    @apply border-t-8
+}
+
+.divider-xl::after {
+    @apply border-t-8
+}
+
+.divider-dashed {
+    @apply border-dashed
+}
+
+::before.divider-dashed {
+    @apply border-dashed
+}
+
+::after.divider-dashed {
+    @apply border-dashed
+}
+
+.divider-dotted {
+    @apply border-dotted
+}
+
+::before.divider-dotted {
+    @apply border-dotted
+}
+
+::after.divider-dotted {
+    @apply border-dotted
+}
+
+.divider-dubble {
+    @apply border-double
+}
+
+::before.divider-dubble {
+    @apply border-double
+}
+
+::after.divider-dubble {
+    @apply border-double
+}
+
 .divider-right::before {
-    @apply content-[''] border-t w-1/12 text-current
+    @apply content-[''] w-11/12 text-current
 }
 
 .divider-right::after {
-    @apply content-[''] border-t w-11/12
+    @apply content-[''] w-1/12
 }
 
 .divider-center::before {
-    @apply content-[''] border-t w-full
+    @apply content-[''] w-full
 }
 
 .divider-center::after {
-    @apply content-[''] border-t w-full
+    @apply content-[''] w-full
 }
 
 .divider-left::before {
-    @apply content-[''] border-t dark:border-gray-600 w-11/12
+    @apply content-[''] dark:border-gray-600 w-1/12
 }
 
 .divider-left::after {
-    @apply content-[''] border-t dark:border-gray-600 w-1/12
+    @apply content-[''] dark:border-gray-600 w-11/12
 }
 
 .divider-content {

@@ -56,7 +56,7 @@ export default function Select({ children, id, className = '', label = '', defau
             <select
                 {...props}
                 id={id || postSelectId}
-                className={`form-select` + `${className && ` ` + className}` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}` + `${disabled ? ' disabled' : ''}`}
+                className={`form-select` + `${className && ` ` + className}` + ` ${sizeClass}` + ` ${colorClass}` + ` ${roundedClass}`+ ` ${(size != 'sm' && size != 'default' && size != 'lg') && ` no-arrow`}` + `${disabled ? ' disabled' : ''}`}
                 aria-label={label}
                 value={selected}
                 disabled={disabled}

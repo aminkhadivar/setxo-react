@@ -1,7 +1,7 @@
 /* ------------- Table ------------- */
 
 .table {
-    @apply text-left w-full overflow-hidden
+    @apply text-left rtl:text-right w-full overflow-hidden
 }
 
 .table-light {

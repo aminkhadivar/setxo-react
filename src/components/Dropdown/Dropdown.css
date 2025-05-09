@@ -5,10 +5,10 @@
 }
 
 .drop-trigger {
-    @apply flex items-center
+    @apply flex items-center gap-2
 }
 
-.drop-trigger * {
+.drop-trigger *:not(.hidden) {
     @apply flex items-center gap-2
 }
 

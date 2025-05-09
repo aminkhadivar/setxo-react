@@ -17,7 +17,7 @@
 }
 
 .toggle-switch {
-    @apply w-10 h-6 flex items-center flex-shrink-0 p-1 bg-gray-300 dark:bg-gray-500 rounded-full duration-300 ease-in-out after:w-4 after:h-4 after:bg-white after:rounded-full after:duration-300 peer-checked:after:translate-x-4
+    @apply w-10 h-6 flex items-center flex-shrink-0 p-1 bg-gray-300 dark:bg-gray-500 rounded-full duration-300 ease-in-out after:w-4 after:h-4 after:bg-white after:rounded-full after:duration-300 peer-checked:after:translate-x-4 rtl:peer-checked:after:-translate-x-4
 }
 
 .switch-default {
@@ -61,11 +61,11 @@
 }
 
 .switch-sm {
-    @apply w-8 h-5 after:w-3 after:h-3 peer-checked:after:translate-x-3
+    @apply w-8 h-5 after:w-3 after:h-3 peer-checked:after:translate-x-3 rtl:peer-checked:after:-translate-x-3
 }
 
 .switch-lg {
-    @apply w-12 h-7 after:w-5 after:h-5 peer-checked:after:translate-x-5
+    @apply w-12 h-7 after:w-5 after:h-5 peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5
 }
 
 .switch-reverse {

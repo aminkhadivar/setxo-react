@@ -17,5 +17,5 @@
 }
 
 .list-separator {
-    @apply flex items-center pr-2 text-gray-400 dark:text-gray-500
+    @apply flex items-center px-2 text-gray-400 dark:text-gray-500
 }
