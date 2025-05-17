@@ -7,12 +7,12 @@
   "author": "Amin Khadivar <amin.khadivar@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aminkhadivar/setxo-components.git"
+    "url": "git+https://github.com/aminkhadivar/setxo-react.git"
   },
   "bugs": {
-    "url": "https://github.com/aminkhadivar/setxo-components/issues"
+    "url": "https://github.com/aminkhadivar/setxo-react/issues"
   },
-  "homepage": "https://github.com/aminkhadivar/setxo-components#readme",
+  "homepage": "https://github.com/aminkhadivar/setxo-react#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
     "access": "public"
