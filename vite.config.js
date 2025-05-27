@@ -14,11 +14,11 @@ export default defineConfig(() => ({
     libInjectCss(),
     macrosPlugin(),
   ],
-  
+
   build: {
     lib: {
       entry: [
-        resolve('src/index.js'),
+        resolve(__dirname, 'src/index.js'),
         resolve('src/components', 'Accordion/Accordion.jsx'),
         resolve('src/components', 'Alert/Alert.jsx'),
         resolve('src/components', 'Avatar/Avatar.jsx'),
@@ -46,11 +46,13 @@ export default defineConfig(() => ({
         resolve('src/contents', 'Table/Table.jsx'),
         resolve('src/contents', 'Typography/Typography.jsx'),
         resolve('src/contents', 'Divider/Divider.jsx'),
+        resolve('src/forms', 'Form/Form.jsx'),
         resolve('src/forms', 'Checkbox/Checkbox.jsx'),
         resolve('src/forms', 'FormControl/Input.jsx'),
         resolve('src/forms', 'FormControl/FileInput.jsx'),
         resolve('src/forms', 'FormControl/InputError.jsx'),
         resolve('src/forms', 'FormControl/InputHelp.jsx'),
+        resolve('src/forms', 'FormControl/ColorInput'),
         resolve('src/forms', 'FormControl/Label.jsx'),
         resolve('src/forms', 'FormControl/Textarea.jsx'),
         resolve('src/forms', 'Radio/Radio.jsx'),
@@ -58,15 +60,20 @@ export default defineConfig(() => ({
         resolve('src/forms', 'Switch/Switch.jsx'),
         resolve('src/forms', 'Range/Range.jsx'),
         resolve('src/layouts', 'Setxo/Setxo.jsx'),
+        resolve('src/layouts', 'Setxo/ThemeContext.jsx'),
         resolve('src/layouts', 'DarkModeToggle/DarkModeToggle.jsx'),
       ],
-      name: 'SetxoComponent',
+      name: 'setxo-react',
       formats: ['es'],
       fileName: (format) => `[name].${format}.js`,
     },
     manifest: true,
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
-    },
+      external: ['react', 'react-dom', ...Object.keys(packageJson.peerDependencies)],
+      output: {
+        preserveModules: false,
+        exports: 'named',
+      },
+    }
   }
 }))
