@@ -1,8 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { Link } from "@inertiajs/react"
 import './Navbar.css'
-import { HambergerMenu } from 'iconsax-react'
-import { Transition } from '@headlessui/react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const NavbarContext = createContext()
 
@@ -70,9 +69,7 @@ const Navbar = ({ children, position = 'relative', theme = 'auto', className = '
     return (
         <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass, roundedClass }}>
             <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` ` + roundedTopClass : (rounded && ` ` + roundedClass)}` + `${className && ` ` + className}` + `${theme && ` ` + themeClass}` + ` ${position}`}>
-                {/* <div className="navbar-container"> */}
                 {children}
-                {/* </div> */}
             </nav>
         </NavbarContext.Provider>
     )
@@ -96,14 +93,13 @@ const NavbarToggle = ({ children, className = '', ...props }) => {
     const { open, toggleOpen, rounded, roundedClass } = useContext(NavbarContext)
 
     return (
-        <button onClick={toggleOpen} className={`navbar-toggle order-2` + `${rounded && ` ` + roundedClass}`} type="button" aria-expanded={`${open ? true : false}`} aria-label="Toggle navigation">
+        <button onClick={toggleOpen} className={`navbar-toggle order-2` + `${rounded && ` ` + roundedClass}`} type="button" aria-expanded={`${open ? true : false}`} aria-label="Toggle navigation" {...props}>
             <span className="sr-only">Open main menu</span>
             {open ?
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
                 :
-                // <HambergerMenu />
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-6 w-6" fill="none">
                     <path d="M4 8.5L20 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M4 15.5L20 15.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -118,22 +114,23 @@ const NavbarCollapse = ({ children, className = '', ...props }) => {
     const { open, colorClass, color, roundedBottomClass } = useContext(NavbarContext)
 
     return (
-        <div className={`navbar-collapse` + `${className && ` ` + className}`}>
-            <Transition
-                as="div"
-                show={open}
-                className={`navbar-nav transition-all` + `${color && ` ` + colorClass}` + ` ${roundedBottomClass}`}
-                enter="ease-linear duration-300"
-                enterFrom={`opacity-0 -translate-y-5`}
-                enterTo="opacity-100 translate-y-0"
-                leave="ease-linear duration-300"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo={`opacity-0 -translate-y-5`}
-            >
-                <div className="relative w-full">
-                    {children}
-                </div>
-            </Transition>
+        <div className={`navbar-collapse` + `${className && ` ` + className}`} {...props}>
+            <AnimatePresence initial={false}>
+                {open && (
+                    <motion.div
+                        key="navbar-collapse"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className={`navbar-nav${color ? ` ${colorClass}` : ''} ${roundedBottomClass}`}
+                    >
+                        <div className="relative w-full">
+                            {children}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             <div className={`relative hidden md:flex items-center w-full`}>
                 {children}
             </div>

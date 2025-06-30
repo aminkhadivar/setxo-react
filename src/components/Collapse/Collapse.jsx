@@ -1,41 +1,42 @@
 import { forwardRef, useState } from 'react'
-import { Disclosure, DisclosureButton, Transition } from '@headlessui/react'
+import { motion, AnimatePresence } from 'framer-motion'
 
-export default function Collapse({ children, title, className, show }) {
+export default function Collapse({ children, title, className = '', show }) {
+    const [open, setOpen] = useState(false)
 
-    const [openDefaultCollapse, setOpenDefaultCollapse] = useState()
+    const isControlled = typeof show === 'boolean'
+    const isOpen = isControlled ? show : open
 
-    const defaultToggleOpen = () => {
-        setOpenDefaultCollapse((previousState) => !previousState)
+    const toggle = () => {
+        if (!isControlled) setOpen((prev) => !prev)
     }
 
-    let MyCustomButton = forwardRef(function (props, ref) {
+    const CustomButton = forwardRef(function (props, ref) {
         return <button className={className} ref={ref} {...props} />
     })
 
     return (
-        <>
-            <Disclosure>
-                <>
-                    {title &&
-                        <DisclosureButton as={MyCustomButton} onClick={defaultToggleOpen}>{title}</DisclosureButton>
-                    }
-                    <Transition
-                        show={title ? openDefaultCollapse : show}
-                        className="transition-all duration-300"
-                        enter="transition-[max-height] duration-500 ease-in"
-                        enterFrom="transform max-h-0"
-                        enterTo="transform max-h-screen"
-                        leave="transition-[max-height] duration-300 ease-out"
-                        leaveFrom="transform max-h-screen"
-                        leaveTo="transform max-h-0"
+        <div>
+            {title && (
+                <CustomButton onClick={toggle}>
+                    {title}
+                </CustomButton>
+            )}
+            <AnimatePresence initial={false}>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        style={{ overflow: 'hidden' }}
                     >
-                        <div className="overflow-hidden">
+                        <div>
                             {children}
                         </div>
-                    </Transition>
-                </>
-            </Disclosure>
-        </>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
     )
 }

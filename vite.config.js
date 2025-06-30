@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import macrosPlugin from 'vite-plugin-babel-macros'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
-
+import postcss from 'rollup-plugin-postcss'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -11,7 +11,9 @@ import * as packageJson from './package.json'
 export default defineConfig(() => ({
   plugins: [
     react(),
-    libInjectCss(),
+    libInjectCss({
+      include: ['src/styles/base.css']
+    }),
     macrosPlugin(),
   ],
 
@@ -67,13 +69,24 @@ export default defineConfig(() => ({
       formats: ['es'],
       fileName: (format) => `[name].${format}.js`,
     },
-    manifest: true,
+    manifest: false,
     rollupOptions: {
-      external: ['react', 'react-dom', ...Object.keys(packageJson.peerDependencies)],
+      external: ['react', 'react-dom', '@inertiajs/react', ...Object.keys(packageJson.peerDependencies)],
+      plugins: [
+        postcss({
+          extract: 'styles/base.css',
+          minimize: true,
+        }),
+      ],
       output: {
+        entryFileNames: ({ name }) => `${name}/${name}.es.js`,
+        assetFileNames: ({ name }) => {
+          if (name.endsWith('.css')) return `${name.replace('src/components/', '').replace('.css', '')}/${name.split('/').pop()}`
+          return '[name]'
+        },
         preserveModules: false,
         exports: 'named',
       },
-    }
+    },
   }
 }))

@@ -1,12 +1,13 @@
 /* ------------- Drawer ------------- */
 
+@import "../../styles/base.css";
+
 .drawer {
-    @apply relative z-50;
-    overflow: unset !important;
+    @apply fixed inset-0 px-4 sm:px-0 items-center transform transition-all z-50
 }
 
 .drawer-dialog {
-    @apply flex flex-col gap-4 bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg p-4
+    @apply flex flex-col gap-4 bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg p-4 z-50
 }
 
 .drawer-content {
@@ -30,7 +31,7 @@
 }
 
 .drawer-backdrop {
-    @apply fixed inset-0 overflow-hidden bg-gray-800 bg-opacity-80 transition-opacity
+    @apply fixed inset-0 overflow-hidden bg-gray-800/80 transition-opacity
 }
 
 .drawer-title {

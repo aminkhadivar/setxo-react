@@ -1,5 +1,7 @@
 /* ------------- Tooltip ------------- */
 
+@import "../../styles/base.css";
+
 .tooltip {
     @apply relative inline
 }
@@ -9,11 +11,11 @@
 }
 
 .tooltip-top {
-    @apply bottom-full mb-1 left-1/2 -translate-x-1/2
+    @apply bottom-full mb-1 left-1/2
 }
 
 .tooltip-top-start {
-    @apply bottom-full mb-1 left-0
+    @apply bottom-full mb-1
 }
 
 .tooltip-top-end {
@@ -21,7 +23,7 @@
 }
 
 .tooltip-right {
-    @apply left-full ml-1 top-1/2 -translate-y-1/2
+    @apply left-full ml-1 top-1/2
 }
 
 .tooltip-right-start {
@@ -33,11 +35,11 @@
 }
 
 .tooltip-bottom {
-    @apply top-full mt-1 left-1/2 -translate-x-1/2
+    @apply top-full mt-1 left-1/2
 }
 
 .tooltip-bottom-start {
-    @apply top-full mt-1 left-0
+    @apply top-full mt-1
 }
 
 .tooltip-bottom-end {
@@ -45,7 +47,7 @@
 }
 
 .tooltip-left {
-    @apply right-full mr-1 top-1/2 -translate-y-1/2
+    @apply right-full mr-1 top-1/2
 }
 
 .tooltip-left-start {

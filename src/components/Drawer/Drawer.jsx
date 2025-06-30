@@ -1,21 +1,62 @@
-import { Fragment, useState } from 'react'
-import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
-import CloseButton from "../CloseButton/CloseButton"
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import CloseButton from '../CloseButton/CloseButton'
+import Typography from '../../contents/Typography/Typography'
 import './Drawer.css'
 
-export default function Drawer({ children, className = '', title, content, footer, trigger, show = false, width = '', placement = 'top', dir = '', closeable = true, onClose = () => { }, ...props }) {
+export default function Drawer({
+    children,
+    className = '',
+    title,
+    content,
+    footer,
+    trigger,
+    show = false,
+    width = '',
+    placement = 'right',
+    dir = '',
+    closeable = true,
+    onClose = () => { },
+    ...props
+}) {
+    const [isOpen, setIsOpen] = useState(show)
 
-    const getBody = document.querySelector("body")
+    useEffect(() => {
+        setIsOpen(show);
+    }, [show]);
 
-    const [showingDrawer, setshowingDrawer] = useState(false)
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        };
+    }, [isOpen])
+
+    useEffect(() => {
+        if (!isOpen) return
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape' && closeable) {
+                close()
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [isOpen, closeable])
+
     const showDrawer = () => {
-        setshowingDrawer(true)
-        getBody.style.overflow = 'unset'
+        setIsOpen(true)
     }
 
     const close = () => {
         if (closeable) {
-            setshowingDrawer(false) || onClose()
+            setIsOpen(false) || onClose()
         } else {
             var getDrawerDialog = document.querySelector('.drawer-dialog')
             getDrawerDialog.classList.add("backdrop-effect")
@@ -26,112 +67,94 @@ export default function Drawer({ children, className = '', title, content, foote
     }
 
     const closeButton = () => {
-        setshowingDrawer(false) || onClose()
+        setIsOpen(false) || onClose()
     }
 
-    const alignClass = {
-        default: {
-            enter: "ease-out duration-300",
-            enterFrom: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-            enterTo: "opacity-100 translate-y-0 sm:scale-100",
-            leave: "ease-in duration-300",
-            leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
-            leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        },
-        top: {
-            enter: "enter-motion",
-            enterFrom: "-translate-y-full",
-            enterTo: "translate-y-0",
-            leave: "leave-motion",
-            leaveFrom: "translate-y-0",
-            leaveTo: "-translate-y-full"
-        }
-        ,
-        bottom: {
-            enter: "enter-motion",
-            enterFrom: "translate-y-full",
-            enterTo: "translate-y-0",
-            leave: "leave-motion",
-            leaveFrom: "translate-y-0",
-            leaveTo: "translate-y-full"
+    const drawerVariants = {
+        right: {
+            hidden: { opacity: 0, x: 100 },
+            visible: { opacity: 1, x: 0 },
         },
         left: {
-            enter: "enter-motion",
-            enterFrom: "-translate-x-full",
-            enterTo: "translate-x-0",
-            leave: "leave-motion",
-            leaveFrom: "translate-x-0",
-            leaveTo: "-translate-x-full"
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
         },
-        right: {
-            enter: "enter-motion",
-            enterFrom: "translate-x-full",
-            enterTo: "translate-x-0",
-            leave: "leave-motion",
-            leaveFrom: "translate-x-0",
-            leaveTo: "translate-x-full"
+        top: {
+            hidden: { opacity: 0, y: -100 },
+            visible: { opacity: 1, y: 0 },
         },
+        bottom: {
+            hidden: { opacity: 0, y: 100 },
+            visible: { opacity: 1, y: 0 },
+        },
+    }
+
+    const placementClasses = {
+        right: "top-0 right-0 h-full",
+        left: "top-0 left-0 h-full",
+        top: "top-0 left-0 w-full",
+        bottom: "bottom-0 left-0 w-full",
     }[placement]
 
-    const placementClass = {
-        top: 'drawer-dialog-top',
-        bottom: 'drawer-dialog-bottom',
-        left: 'drawer-dialog-left',
-        right: 'drawer-dialog-right',
-    }[placement]
+
+    const drawerContent = (
+        <AnimatePresence>
+            {(isOpen || show) && (
+                <div
+                    className="drawer"
+                    dir={dir}
+                    role="dialog"
+                    tabIndex="-1"
+                    aria-modal={isOpen ? 'true' : 'false'}
+                >
+                    <motion.div
+                        className="fixed inset-0 z-40 bg-black/50"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ ease: 'easeInOut', duration: 0.3 }}
+                    >
+                        <div className={`drawer-backdrop ${closeable ? ' cursor-pointer' : ''}`} onClick={close} />
+                    </motion.div>
+                    <motion.div
+                        className={`fixed z-50 ${placementClasses}`}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={drawerVariants[placement]}
+                        transition={{ ease: 'easeInOut', duration: 0.3 }}
+                        key="drawer-panel"
+                    >
+                        <div
+                            className={`drawer-dialog drawer-dialog-${placement} ${width} ${className}`}
+                            {...props}
+                        >
+                            {title && (
+                                <div className="drawer-title">
+                                    <Typography as="heading" variant="h4">{title}</Typography>
+                                    <CloseButton
+                                        color="transparent"
+                                        size="md"
+                                        rounded="full"
+                                        onClick={closeButton}
+                                        aria-label="Close Drawer"
+                                    />
+                                </div>
+                            )}
+                            <div className="drawer-content">{content || children}</div>
+
+                            {footer && <div className="drawer-footer">{footer}</div>}
+                        </div>
+                    </motion.div>
+                </div>
+            )}
+        </AnimatePresence>
+    )
 
     return (
         <>
-            {trigger &&
-                <div onClick={showDrawer}>
-                    {trigger}
-                </div>
-            }
-            <Transition show={showingDrawer || show} as={Fragment}>
-                <Dialog
-                    as="div"
-                    className="drawer"
-                    onClose={close}
-                    dir={dir}
-                >
-                    <TransitionChild
-                        as={Fragment}
-                        enter="backdrop-motion"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="backdrop-motion"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <div className={`drawer-backdrop ${closeable ? ' cursor-pointer' : ''}`} />
-                    </TransitionChild>
-
-                    <TransitionChild
-                        as={Fragment}
-                        placement={placement}
-                        enter={`${alignClass.enter}`}
-                        enterFrom={`${alignClass.enterFrom}`}
-                        enterTo={`${alignClass.enterTo}`}
-                        leave={`${alignClass.leave}`}
-                        leaveFrom={`${alignClass.leaveFrom}`}
-                        leaveTo={`${alignClass.leaveTo}`}
-                    >
-                        <DialogPanel {...props}
-                            className={`drawer-dialog ${placementClass} ${width} ${className && ` ` + className}`}
-                        >
-                            {title &&
-                                <div className="drawer-title">
-                                    <h4>{title}</h4>
-                                    <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
-                                </div>
-                            }
-                            <div className="drawer-content">
-                                {content}
-                            </div>
-                        </DialogPanel>
-                    </TransitionChild>
-                </Dialog>
-            </Transition>
+            {trigger && <div onClick={showDrawer}>{trigger}</div>}
+            {createPortal(drawerContent, document.body)}
         </>
     )
 }

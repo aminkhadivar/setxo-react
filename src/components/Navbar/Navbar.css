@@ -1,10 +1,10 @@
+/* ------------- Navbar ------------- */
+
+@import "../../styles/base.css";
+
 .navbar {
     @apply w-full px-2 py-2 sm:px-4 sm:py-3 flex flex-wrap items-center justify-between gap-x-4 mx-auto duration-300
 }
-
-/* .navbar-container {
-    @apply mx-auto flex flex-wrap items-center justify-between gap-x-4
-} */
 
 .navbar-brand {
     @apply flex items-center justify-center gap-2 whitespace-nowrap text-2xl font-semibold dark:text-white
@@ -51,7 +51,7 @@
 }
 
 .navbar-toggle {
-    @apply inline-flex items-center p-2 text-sm md:hidden order-1
+    @apply inline-flex items-center p-2 text-sm md:hidden order-1 duration-300
 }
 
 .navbar-light .navbar-toggle {

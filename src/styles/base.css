@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "./colors.css";
+
+@custom-variant dark (&:is(.dark, .dark *):not(.light *));
+
+@theme {
+  --radius-none: 0 !important;
+  --radius-sm: 0.25rem !important;
+  --radius: 0.5rem !important;
+  --radius-md: 0.75rem !important;
+  --radius-lg: 1rem !important;
+  --radius-xl: 1.25rem !important;
+  --radius-2xl: 1.5rem !important;
+  --radius-3xl: 1.75rem !important;
+  --radius-full: 9999px !important;
+}
+
+@layer utilities {
+  .rounded {
+    border-radius: var(--radius) !important;
+  }
+
+  .rounded-t {
+    border-top-left-radius: var(--radius) !important;
+    border-top-right-radius: var(--radius) !important;
+  }
+
+  .rounded-b {
+    border-bottom-left-radius: var(--radius) !important;
+    border-bottom-right-radius: var(--radius) !important;
+  }
+}

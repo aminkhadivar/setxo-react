@@ -1,5 +1,7 @@
 /* ------------- Table ------------- */
 
+@import "../../styles/base.css";
+
 .table {
     @apply text-left rtl:text-right w-full overflow-hidden
 }
@@ -137,7 +139,7 @@
 }
 
 .table-striped.table-dark .table-row:nth-child(odd) {
-    @apply bg-white bg-opacity-5
+    @apply bg-white/5
 }
 
 .table-striped.table-primary .table-row:nth-child(odd) {

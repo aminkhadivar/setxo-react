@@ -1,7 +1,9 @@
 /* ------------- Popovers ------------- */
 
+@import "../../styles/base.css";
+
 .popover {
-    @apply absolute min-w-max flex flex-wrap p-3 z-30 rounded-md
+    @apply absolute min-w-max flex flex-wrap p-2 z-30 rounded-md
 }
 
 .popover-content {
@@ -13,7 +15,7 @@
 }
 
 .popover-right {
-    @apply left-full ml-2 top-1/2 -translate-y-1/2
+    @apply left-full ml-2 lg:top-1/2 lg:-translate-y-1/2 top-0 translate-y-0
 }
 
 .popover-bottom {
@@ -21,9 +23,41 @@
 }
 
 .popover-left {
-    @apply right-full mr-2 top-1/2 -translate-y-1/2
+    @apply right-full mr-2 lg:top-1/2 lg:-translate-y-1/2 top-0 translate-y-0
+}
+
+.popover-arrow {
+  @apply absolute w-3 h-3 rotate-45 bg-inherit
+}
+
+.popover-top .popover-arrow {
+  @apply lg:left-1/2 left-5 top-full -mt-[5px] -translate-x-1/2 border-b border-r border-inherit rounded-br-sm
+}
+
+.popover-right .popover-arrow {
+  @apply lg:top-1/2 top-5 left-0 -ml-[7px] -translate-y-1/2 border-b border-l border-inherit rounded-bl-sm
+}
+
+.popover-bottom .popover-arrow {
+  @apply lg:left-1/2 left-5 top-0 -mt-[7px] -translate-x-1/2 border-t border-l border-inherit rounded-tl-sm
+}
+
+.popover-left .popover-arrow {
+  @apply lg:top-1/2 top-5 right-0 -mr-[7px] -translate-y-1/2 border-t border-r border-inherit rounded-tr-sm
+}
+
+.popover-default {
+    @apply bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-700 shadow-lg text-gray-800 dark:text-gray-100
+}
+
+.popover-dark {
+    @apply bg-gray-700 text-gray-100
 }
 
 .popover-link {
     @apply text-blue-500 hover:text-blue-600 font-medium duration-300 px-1
+}
+
+.popover-trigger {
+    @apply cursor-pointer
 }

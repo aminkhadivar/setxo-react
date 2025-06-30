@@ -1,11 +1,13 @@
 /* ------------- Modal ------------- */
 
+@import "../../styles/base.css";
+
 .modal {
     @apply fixed inset-0 px-4 sm:px-0 items-center z-50 transform transition-all
 }
 
 .modal-dialog {
-    @apply bg-white dark:bg-gray-900 shadow-xl dark:shadow-none transform transition-all sm:w-full sm:mx-auto
+    @apply bg-white dark:bg-gray-900 shadow-xl dark:shadow-none transform transition-all sm:w-full sm:mx-auto z-50
 }
 
 .modal-title {
@@ -17,7 +19,7 @@
 }
 
 .modal-scrollable {
-    @apply max-h-[50vh] overflow-y-auto;
+    @apply max-h-[400px] overflow-y-auto;
 }
 
 .modal-footer {
@@ -25,7 +27,7 @@
 }
 
 .modal-backdrop {
-    @apply fixed inset-0 bg-gray-800 bg-opacity-80 transition-opacity
+    @apply absolute inset-0 bg-gray-800/80 transition-opacity  min-h-screen
 }
 
 .backdrop-motion {

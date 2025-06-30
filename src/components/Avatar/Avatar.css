@@ -1,45 +1,43 @@
 /* ------------- Avatar ------------- */
 
+@import "../../styles/base.css";
+
 .avatar {
     @apply font-medium text-xl text-gray-600 dark:text-gray-300
 }
 
-.border-avatar {
-    @apply ring-2 border-4 border-transparent
-}
-
 .border-light {
-    @apply border-avatar ring-gray-300 dark:ring-gray-200
+    @apply ring-2 border-4 border-transparent ring-gray-300 dark:ring-gray-200
 }
 
 .border-gray {
-    @apply border-avatar ring-gray-500 dark:ring-gray-400
+    @apply ring-2 border-4 border-transparent ring-gray-500 dark:ring-gray-400
 }
 
 .border-dark {
-    @apply border-avatar ring-gray-700 dark:ring-gray-600
+    @apply ring-2 border-4 border-transparent ring-gray-700 dark:ring-gray-600
 }
 
 .border-primary {
-    @apply border-avatar ring-blue-500 dark:ring-blue-400
+    @apply ring-2 border-4 border-transparent ring-blue-500 dark:ring-blue-400
 }
 
 .border-success {
-    @apply border-avatar ring-green-500 dark:ring-green-400
+    @apply ring-2 border-4 border-transparent ring-green-500 dark:ring-green-400
 }
 
 .border-danger {
-    @apply border-avatar ring-red-500 dark:ring-red-400
+    @apply ring-2 border-4 border-transparent ring-red-500 dark:ring-red-400
 }
 
 .border-warning {
-    @apply border-avatar ring-yellow-500 dark:ring-yellow-400
+    @apply ring-2 border-4 border-transparent ring-yellow-500 dark:ring-yellow-400
 }
 
 .border-info {
-    @apply border-avatar ring-cyan-500 dark:ring-cyan-400
+    @apply ring-2 border-4 border-transparent ring-cyan-500 dark:ring-cyan-400
 }
 
 .border-purple {
-    @apply border-avatar ring-setxo-500 dark:ring-setxo-400
+    @apply ring-2 border-4 border-transparent ring-setxo-500 dark:ring-setxo-400
 }

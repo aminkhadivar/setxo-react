@@ -3,7 +3,7 @@ import Label from "../FormControl/Label"
 import { FormContext } from "../Form/Form"
 import './Checkbox.css'
 
-export default function Checkbox({ id, className = '', color = '', label, disabled = ('' || useContext(FormContext)), size = '', defaultChecked = false, darkTick = '', ...props }) {
+export default function Checkbox({ id, className = '', color = 'default', label, disabled = ('' || useContext(FormContext)), size = '', defaultChecked = false, darkTick = '', ...props }) {
 
     const postCheckedId = useId()
 
@@ -14,6 +14,7 @@ export default function Checkbox({ id, className = '', color = '', label, disabl
     }
 
     const colorClass = {
+        default: 'checkbox-default',
         light: 'checkbox-light',
         gray: 'checkbox-gray',
         dark: 'checkbox-dark',

@@ -1,5 +1,7 @@
 /* ------------- Color Input ------------- */
 
+@import "../../styles/base.css";
+
 .form-color {
     @apply flex flex-col
 }

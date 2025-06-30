@@ -1,20 +1,20 @@
-import { useState, Fragment } from "react"
-import { Transition } from '@headlessui/react'
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import './Popover.css'
 
-export default function Popover({ content, className = '', children, placement = 'top', color = 'dark', dir = '', closeable = false }) {
-
+export default function Popover({
+    content,
+    className = '',
+    children,
+    placement = 'top',
+    color = 'default',
+    dir = '',
+    closeable = false,
+}) {
     const [show, setShow] = useState(false)
 
-    const showingPopover = () => {
-        setShow((previousState) => !previousState)
-    };
-
-    const closeByClick = () => {
-        if (closeable) {
-            setShow(false)
-        }
-    };
+    const togglePopover = () => setShow(prev => !prev)
+    const closeByClickOutside = () => closeable && setShow(false)
 
     const placementClass = {
         top: 'popover-top',
@@ -23,17 +23,11 @@ export default function Popover({ content, className = '', children, placement =
         left: 'popover-left',
     }[placement]
 
-    const translateClass = {
-        top: 'translate-y-5',
-        right: '-translate-x-5',
-        bottom: '-translate-y-5',
-        left: 'translate-x-5',
-    }[placement]
-
     const colorClass = {
+        default: 'popover-default',
         light: 'bg-gray-200/90 text-gray-700',
         gray: 'bg-gray-500/90 text-gray-100',
-        dark: 'bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-lg text-gray-800 dark:text-gray-100',
+        dark: 'popover-dark',
         primary: 'bg-blue-800/90 text-gray-100',
         success: 'bg-green-800/90 text-gray-100',
         danger: 'bg-red-800/90 text-gray-100',
@@ -42,30 +36,63 @@ export default function Popover({ content, className = '', children, placement =
         custom: '',
     }[color]
 
+    const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 1024
+
+    const motionVariants = {
+        top: {
+            initial: { opacity: 0, y: 10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
+            animate: { opacity: 1, y: 0, scale: 1, x: isMobile() ? '0' : '-50%' },
+            exit: { opacity: 0, y: 10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
+        },
+        right: {
+            initial: { opacity: 0, x: -10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
+            animate: { opacity: 1, x: 0, scale: 1, y: isMobile() ? '0' : '-50%' },
+            exit: { opacity: 0, x: -10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
+        },
+        bottom: {
+            initial: { opacity: 0, y: -10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
+            animate: { opacity: 1, y: 0, scale: 1, x: isMobile() ? '0' : '-50%' },
+            exit: { opacity: 0, y: -10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
+        },
+        left: {
+            initial: { opacity: 0, x: 10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
+            animate: { opacity: 1, x: 0, scale: 1, y: isMobile() ? '0' : '-50%' },
+            exit: { opacity: 0, x: 10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
+        },
+    }[placement]
+
     return (
         <>
             <div className="relative inline-block">
-                <div onClick={showingPopover}>
+                <div className="popover-trigger" onClick={togglePopover}>
                     {children}
                 </div>
-                <Transition
-                    as={Fragment}
-                    show={show}
-                    enter="ease-in-out duration-300"
-                    enterFrom={`opacity-0 sm:scale-95 ${translateClass}`}
-                    enterTo="opacity-100 sm:scale-100 translate-y-0"
-                    leave="ease-in-out duration-200"
-                    leaveFrom="opacity-100 sm:scale-100 translate-y-0"
-                    leaveTo={`opacity-0 sm:scale-95 ${translateClass}`}
-                >
-                    <div className={`popover ${placementClass}` + ` ${colorClass}` + className}>
-                        <div className="popover-content" dir={dir}>
-                            {content}
-                        </div>
-                    </div>
-                </Transition>
+
+                <AnimatePresence>
+                    {show && (
+                        <motion.div
+                            key="popover"
+                            initial={motionVariants.initial}
+                            animate={motionVariants.animate}
+                            exit={motionVariants.exit}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className={`popover ${placementClass} ${colorClass} ${className}`}
+                        >
+                            <div className="popover-arrow" />
+                            <div className="popover-content" dir={dir}>
+                                {content}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
-            {closeable && show && <div className="fixed inset-0 z-40" onClick={closeByClick}></div>}
+
+            {closeable && show && (
+                <div
+                    className="fixed inset-0 z-40"
+                    onClick={closeByClickOutside}
+                />
+            )}
         </>
     )
 }

@@ -1,5 +1,7 @@
 /* ------------- Breadcrumbs ------------- */
 
+@import "../../styles/base.css";
+
 .breadcrumb {
     @apply flex
 }

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
-import { Link } from '@inertiajs/react'
 import { useEffect, useState } from "react"
+import A from '../../contents/Links/Links'
 import './Nav.css'
 
 const NavContext = createContext()
@@ -62,7 +62,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
             {href ?
                 <>
                     {active ?
-                        <Link
+                        <A
                             {...props}
                             href={href}
                             className={
@@ -71,9 +71,9 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                             aria-current="page"
                         >
                             {children}
-                        </Link>
+                        </A>
                         :
-                        <Link
+                        <A
                             {...props}
                             href={href}
                             className={
@@ -81,7 +81,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                             }
                         >
                             {children}
-                        </Link>
+                        </A>
                     }
                 </>
                 :

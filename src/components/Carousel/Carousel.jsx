@@ -1,4 +1,4 @@
-import { ArrowLeft2, ArrowRight2 } from 'iconsax-react'
+import { ArrowLeft2, ArrowRight2 } from 'iconsax-reactjs'
 import { useState, useEffect } from 'react'
 import Image from "../../contents/Image/Image"
 import './Carousel.css'

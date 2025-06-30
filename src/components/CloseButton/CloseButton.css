@@ -1,7 +1,9 @@
 /* ------------- Close Button ------------- */
 
+@import "../../styles/base.css";
+
 .btn-close {
-    @apply text-sm p-1.5 transition duration-300
+    @apply text-sm p-1.5 transition duration-300 cursor-pointer
 }
 
 .btn-close-default {

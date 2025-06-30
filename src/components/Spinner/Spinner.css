@@ -1,5 +1,7 @@
 /* ------------- Spinner ------------- */
 
+@import "../../styles/base.css";
+
 .spinner-border {
     @apply h-8 w-8 animate-spin rounded-full border-4
 }
@@ -54,12 +56,12 @@
 }
 
 .spinner-grow {
-    @apply h-8 w-8 rounded-full animate-pulse border-gray-200;
-    animation-duration: 1s;
+    @apply h-8 w-8 rounded-full border-gray-200;
+    animation: custom-pulse 1s ease-in-out infinite;
 }
 
-@keyframes pulse {
-
+@layer utilities {
+  @keyframes custom-pulse {
     0%,
     100% {
         opacity: 1;
@@ -70,7 +72,12 @@
         opacity: 0;
         scale: 0;
     }
+  }
+  .animate-custom-pulse {
+    animation: custom-pulse 1.5s ease-in-out infinite;
+  }
 }
+
 
 .spinner-grow.spinner-default {
     @apply  bg-current

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, createContext, useContext, Fragment } from 'react'
 import { Link } from '@inertiajs/react'
-import { Transition } from '@headlessui/react'
+import { AnimatePresence, motion } from 'framer-motion'
 import './Dropdown.css'
 
 const DropDownContext = createContext()
@@ -101,44 +101,45 @@ const Content = ({ width = '192', contentClasses = 'bg-white', children }) => {
     }
 
     const dropdownBgcolorClass = {
-        light: 'bg-white dark:bg-zinc-800',
-        dark: 'bg-zinc-800 dark',
+        light: 'bg-white dark:bg-gray-800',
+        dark: 'bg-gray-800 dark',
     }[dropdownBgColor]
 
-    const translateClass = {
-        top: 'translate-y-5',
-        'top-center': 'translate-y-5',
-        'top-end': 'translate-y-5',
-        right: '-translate-x-5',
-        'right-center': '-translate-x-5',
-        'right-end': '-translate-x-5',
-        bottom: '-translate-y-5',
-        'bottom-center': '-translate-y-5',
-        'bottom-end': '-translate-y-5',
-        left: 'translate-x-5',
-        'left-center': 'translate-x-5',
-        'left-end': 'translate-x-5'
+    const animationVariants = {
+        top: { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 10 } },
+        'top-center': { initial: { opacity: 0, y: 10, x: '-50%' }, animate: { opacity: 1, y: 0, x: '-50%' }, exit: { opacity: 0, y: 10, x: '-50%' } },
+        'top-end': { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 10 } },
+        bottom: { initial: { opacity: 0, y: -10 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -10 } },
+        'bottom-center': { initial: { opacity: 0, y: -10, x: '-50%' }, animate: { opacity: 1, y: 0, x: '-50%' }, exit: { opacity: 0, y: -10, x: '-50%' } },
+        'bottom-end': { initial: { opacity: 0, y: -10 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -10 } },
+        left: { initial: { opacity: 0, x: 10 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: 10 } },
+        'left-center': { initial: { opacity: 0, x: 10, y: '-50%' }, animate: { opacity: 1, x: 0, y: '-50%' }, exit: { opacity: 0, x: 10, y: '-50%' } },
+        'left-end': { initial: { opacity: 0, x: 10 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: 10 } },
+        right: { initial: { opacity: 0, x: -10 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: -10 } },
+        'right-center': { initial: { opacity: 0, x: -10, y: '-50%' }, animate: { opacity: 1, x: 0, y: '-50%' }, exit: { opacity: 0, x: -10, y: '-50%' } },
+        'right-end': { initial: { opacity: 0, x: -10 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: -10 } },
     }[placement]
 
+
     return (
-        <Transition
-            as={Fragment}
-            show={open}
-            enter="ease-in-out duration-200"
-            enterFrom={`opacity-0 sm:scale-95 ${autoClose == 'hover' ? '' : translateClass}`}
-            enterTo="opacity-100 scale-100 translate-y-0"
-            leave="ease-in-out duration-100"
-            leaveFrom="opacity-100 scale-100 translate-y-0"
-            leaveTo={`opacity-0 sm:scale-95 ${autoClose == 'hover' ? '' : translateClass}`}
-        >
-            <div
-                className={`dropmenu ${placementClass} ${(dropdownBgColor == 'dark') ? 'border border-transparent dark:border-zinc-700' : 'border border-zinc-300 dark:border-zinc-700 '}`}
-                onClick={(autoClose == true || autoClose == 'inside' || autoClose == 'hover') ? () => setOpen(false) : () => null}
-                style={{ width: customWidth }}
-            >
-                <div className={`drop-content ${dropdownBgcolorClass} ` + contentClasses}>{children}</div>
-            </div>
-        </Transition>
+        <AnimatePresence>
+            {open && (
+                <motion.div
+                    key="dropdown"
+                    initial={animationVariants.initial}
+                    animate={animationVariants.animate}
+                    exit={animationVariants.exit}
+                    transition={{ duration: 0.2, ease: 'easeInOut' }}
+                    className={`dropmenu ${placementClass} ${dropdownBgColor === 'dark' ? 'border border-transparent dark:border-gray-700' : 'border border-gray-300 dark:border-gray-700'}`}
+                    style={{ width: customWidth }}
+                    onClick={(autoClose === true || autoClose === 'inside' || autoClose === 'hover') ? () => setOpen(false) : undefined}
+                >
+                    <div className={`drop-content ${dropdownBgcolorClass} ${contentClasses}`}>
+                        {children}
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     )
 }
 

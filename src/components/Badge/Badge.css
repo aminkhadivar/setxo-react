@@ -1,4 +1,7 @@
 /* ------------- Badge ------------- */
+
+@import "../../styles/base.css";
+
 .badge {
     @apply inline-flex items-center px-2;
 }

@@ -1,57 +1,23 @@
 import './Typography.css'
 
-export default function Typography({ href, as = 'p', variant = '', className = '', color = 'primary', children, ...props }) {
+export default function Typography({
+  as = 'p',
+  variant = '',
+  className = '',
+  children,
+  ...props
+}) {
+  const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'lead']
 
-    const variantClass = {
-        h1: 'h1',
-        h2: 'h2',
-        h3: 'h3',
-        h4: 'h4',
-        h5: 'h5',
-        h6: 'h6',
-        lead: 'lead',
-    }[variant]
+  const Tag = as === 'heading' && headingTags.includes(variant) ? variant : 'p'
 
-    const CustomTag = `${variant}`
+  const variantClass = as === 'p' && headingTags.includes(variant) ? variant : ''
 
-    return (
-        <>
-            {as === 'heading' &&
-                <>
-                    {className ?
-                        <CustomTag
-                            {...props}
-                            className={className}
-                        >
-                            {children}
-                        </CustomTag>
-                        :
-                        <CustomTag
-                            {...props}
-                        >
-                            {children}
-                        </CustomTag>
-                    }
-                </>
-            }
-            {as === 'p' &&
-                <>
-                    {variant || className ?
-                        <p
-                            {...props}
-                            className={`${variant && variantClass}` + className}
-                        >
-                            {children}
-                        </p>
-                        :
-                        <p
-                            {...props}
-                        >
-                            {children}
-                        </p>
-                    }
-                </>
-            }
-        </>
-    )
+  const finalClass = [variantClass, className].filter(Boolean).join(' ') || undefined
+
+  return (
+    <Tag {...props} className={finalClass}>
+      {children}
+    </Tag>
+  )
 }

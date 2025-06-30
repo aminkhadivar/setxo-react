@@ -1,5 +1,7 @@
 /* ------------- Dropdowns ------------- */
 
+@import "../../styles/base.css";
+
 .dropmenu {
     @apply absolute z-30 rounded-lg shadow-md shadow-gray-200 dark:shadow-none overflow-hidden
 }
@@ -8,16 +10,12 @@
     @apply flex items-center gap-2
 }
 
-.drop-trigger *:not(.hidden) {
-    @apply flex items-center gap-2
-}
-
 .dropdown-start {
     @apply top-full mt-2 origin-top-left left-0
 }
 
 .dropdown-center {
-    @apply top-full mt-2 left-1/2 -translate-x-1/2
+    @apply top-full mt-2 left-1/2
 }
 
 .dropdown-end {
@@ -29,7 +27,7 @@
 }
 
 .dropup-center {
-    @apply bottom-full mb-2 left-1/2 -translate-x-1/2
+    @apply bottom-full mb-2 left-1/2
 }
 
 .dropup-end {
@@ -41,7 +39,7 @@
 }
 
 .dropend-center {
-    @apply left-full ml-2 top-1/2 -translate-y-1/2
+    @apply left-full ml-2 top-1/2
 }
 
 .dropend-end {
@@ -53,23 +51,11 @@
 }
 
 .dropstart-center {
-    @apply right-full mr-2 top-1/2 -translate-y-1/2
+    @apply right-full mr-2 top-1/2
 }
 
 .dropstart-end {
     @apply right-full mr-2 bottom-0
-}
-
-.drop-menu-end {
-    @apply origin-top-right right-0
-}
-
-.drop-menu-start {
-    @apply origin-top-left left-0
-}
-
-.drop-menu-center {
-    @apply left-1/2 -translate-x-1/2
 }
 
 .drop-content {
@@ -77,9 +63,9 @@
 }
 
 .dropdown-link {
-    @apply flex items-center w-full px-2 py-2 text-left text-sm leading-5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-600 rounded cursor-pointer transition duration-300
+    @apply flex items-center w-full px-2 py-2 text-left text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded cursor-pointer transition duration-300
 }
 
 .dark .dropdown-link {
-    @apply text-zinc-300 hover:text-zinc-100 hover:bg-zinc-600
+    @apply text-gray-300 hover:text-gray-100 hover:bg-gray-600
 }

@@ -1,7 +1,7 @@
-import { Link } from "@inertiajs/react"
+import { Link } from '@inertiajs/react'
 import './Links.css'
 
-export default function A({ href, as = 'Link', className = '', color = '', underline = '', underlineOnHover = '', children, ...props }) {
+export default function A({ href, as = '', className = '', color = '', underline = '', underlineOnHover = '', children, ...props }) {
 
     const colorClass = {
         light: 'link-light',
@@ -13,30 +13,29 @@ export default function A({ href, as = 'Link', className = '', color = '', under
         warning: 'link-warning',
         info: 'link-info',
         purple: 'link-purple',
-    }[color];
+    }[color]
+
+    const isExternal = as.toLowerCase() === 'external'
 
     return (
-        <>
-            {as === 'Link' &&
-                <Link
-                    {...props}
-                    href={href}
-                    className={`${color && colorClass}` + `${underline && ' underline'}` + `${underlineOnHover && ' hover:underline'}` + `${className && ' ' + className}`}
-                >
-                    {children}
-                </Link>
-            }
-            {as === 'externalLink' &&
-                <a
-                    {...props}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`${color && colorClass}` + `${underline && ' underline'}` + `${className && ' ' + className}`}
-                >
-                    {children}
-                </a>
-            }
-        </>
+        isExternal ? (
+            <a
+                {...props}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className={`${color && colorClass}` + `${underline && ' underline'}` + `${className && ' ' + className}`}
+            >
+                {children}
+            </a>
+        ) : (
+            <Link
+                {...props}
+                href={href}
+                className={`${color && colorClass}` + `${underline && ' underline'}` + `${underlineOnHover && ' hover:underline'}` + `${className && ' ' + className}`}
+            >
+                {children}
+            </Link>
+        )
     )
 }

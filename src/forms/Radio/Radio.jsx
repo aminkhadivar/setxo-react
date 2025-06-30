@@ -5,7 +5,7 @@ import './Radio.css'
 
 const RadioContext = createContext()
 
-const Radio = ({ children, className = '', name, color = '', size = '', onChange, defaultValue }) => {
+const Radio = ({ children, className = '', name, color = 'default', size = '', onChange, defaultValue }) => {
 
     const [selectedValue, setSelectedValue] = useState(defaultValue || '');
 
@@ -15,6 +15,7 @@ const Radio = ({ children, className = '', name, color = '', size = '', onChange
     }
 
     const colorClass = {
+        default: 'radio-default',
         light: 'radio-light',
         gray: 'radio-gray',
         dark: 'radio-dark',

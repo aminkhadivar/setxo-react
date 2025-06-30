@@ -1,5 +1,7 @@
 /* ------------- Switch ------------- */
 
+@import "../../styles/base.css";
+
 .form-switch {
     @apply flex items-center
 }
@@ -17,47 +19,47 @@
 }
 
 .toggle-switch {
-    @apply w-10 h-6 flex items-center flex-shrink-0 p-1 bg-gray-300 dark:bg-gray-500 rounded-full duration-300 ease-in-out after:w-4 after:h-4 after:bg-white after:rounded-full after:duration-300 peer-checked:after:translate-x-4 rtl:peer-checked:after:-translate-x-4
+    @apply w-10 h-6 flex items-center flex-shrink-0 p-1 bg-gray-200 dark:bg-gray-900 dark:ring dark:ring-gray-600/50 rounded-full duration-300 ease-in-out after:w-4 after:h-4 after:bg-white after:rounded-full after:duration-300 peer-checked:after:translate-x-4 rtl:peer-checked:after:-translate-x-4
 }
 
 .switch-default {
-    @apply peer-checked:bg-blue-600
+    @apply peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600
 }
 
 .switch-light {
-    @apply peer-checked:bg-gray-300
+    @apply peer-checked:bg-gray-300 dark:peer-checked:bg-gray-400
 }
 
 .switch-gray {
-    @apply peer-checked:bg-gray-500
+    @apply peer-checked:bg-gray-500 dark:peer-checked:bg-gray-500
 }
 
 .switch-dark {
-    @apply peer-checked:bg-gray-700
+    @apply peer-checked:bg-gray-700 dark:peer-checked:bg-gray-700
 }
 
 .switch-primary {
-    @apply peer-checked:bg-blue-500
+    @apply peer-checked:bg-blue-500 dark:peer-checked:bg-blue-500
 }
 
 .switch-success {
-    @apply peer-checked:bg-green-500
+    @apply peer-checked:bg-green-500 dark:peer-checked:bg-green-500
 }
 
 .switch-danger {
-    @apply peer-checked:bg-red-500
+    @apply peer-checked:bg-red-500 dark:peer-checked:bg-red-500
 }
 
 .switch-warning {
-    @apply peer-checked:bg-amber-500
+    @apply peer-checked:bg-amber-500 dark:peer-checked:bg-amber-500
 }
 
 .switch-info {
-    @apply peer-checked:bg-cyan-500
+    @apply peer-checked:bg-cyan-500 dark:peer-checked:bg-cyan-500
 }
 
 .switch-purple {
-    @apply peer-checked:bg-setxo-500
+    @apply peer-checked:bg-setxo-500 dark:peer-checked:bg-setxo-500
 }
 
 .switch-sm {

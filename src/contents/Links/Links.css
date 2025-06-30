@@ -1,5 +1,7 @@
 /* ------------- Links ------------- */
 
+@import "../../styles/base.css";
+
 .link-light {
     @apply text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-200 active:text-gray-600 focus:text-gray-600
 }

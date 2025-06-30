@@ -1,5 +1,7 @@
 /* ------------- Divider ------------- */
 
+@import "../../styles/base.css";
+
 .divider-horizontal {
     @apply border-t
 }
@@ -140,102 +142,42 @@ hr.divider-horizontal.divider-xl {
     @apply inline-block px-4 min-w-max
 }
 
-.divider-default,
-.divider-left::before.divider-default,
-.divider-left::after.divider-default,
-.divider-center::before.divider-default,
-.divider-center::after.divider-default,
-.divider-right::before.divider-default,
-.divider-right::after.divider-default {
+.divider-default {
     @apply border-gray-200 dark:border-gray-600 text-gray-400 dark:text-gray-300
 }
 
-.divider-light,
-.divider-left::before.divider-light,
-.divider-left::after.divider-light,
-.divider-center::before.divider-light,
-.divider-center::after.divider-light,
-.divider-right::before.divider-light,
-.divider-right::after.divider-light {
+.divider-light {
     @apply border-gray-300 dark:border-gray-200 text-gray-300 dark:text-gray-200
 }
 
-.divider-gray,
-.divider-left::before.divider-gray,
-.divider-left::after.divider-gray,
-.divider-center::before.divider-gray,
-.divider-center::after.divider-gray,
-.divider-right::before.divider-gray,
-.divider-right::after.divider-gray {
+.divider-gray {
     @apply border-gray-500 dark:border-gray-400 text-gray-500 dark:text-gray-400
 }
 
-.divider-dark,
-.divider-left::before.divider-dark,
-.divider-left::after.divider-dark,
-.divider-center::before.divider-dark,
-.divider-center::after.divider-dark,
-.divider-right::before.divider-dark,
-.divider-right::after.divider-dark {
+.divider-dark {
     @apply border-gray-700 dark:border-gray-600 text-gray-600 dark:text-gray-500
 }
 
-.divider-primary,
-.divider-left::before.divider-primary,
-.divider-left::after.divider-primary,
-.divider-center::before.divider-primary,
-.divider-center::after.divider-primary,
-.divider-right::before.divider-primary,
-.divider-right::after.divider-primary {
+.divider-primary {
     @apply border-blue-500 dark:border-blue-400 text-blue-500 dark:text-blue-400
 }
 
-.divider-success,
-.divider-left::before.divider-success,
-.divider-left::after.divider-success,
-.divider-center::before.divider-success,
-.divider-center::after.divider-success,
-.divider-right::before.divider-success,
-.divider-right::after.divider-success {
+.divider-success {
     @apply border-green-400 dark:border-green-300 text-green-500 dark:text-green-400
 }
 
-.divider-danger,
-.divider-left::before.divider-danger,
-.divider-left::after.divider-danger,
-.divider-center::before.divider-danger,
-.divider-center::after.divider-danger,
-.divider-right::before.divider-danger,
-.divider-right::after.divider-danger {
+.divider-danger {
     @apply border-red-500 dark:border-red-400 text-red-500 dark:text-red-400
 }
 
-.divider-warning,
-.divider-left::before.divider-warning,
-.divider-left::after.divider-warning,
-.divider-center::before.divider-warning,
-.divider-center::after.divider-warning,
-.divider-right::before.divider-warning,
-.divider-right::after.divider-warning {
+.divider-warning {
     @apply border-amber-500 dark:border-amber-400 text-amber-500 dark:text-amber-400
 }
 
-.divider-info,
-.divider-left::before.divider-info,
-.divider-left::after.divider-info,
-.divider-center::before.divider-info,
-.divider-center::after.divider-info,
-.divider-right::before.divider-info,
-.divider-right::after.divider-info {
+.divider-info {
     @apply border-cyan-500 dark:border-cyan-400 text-cyan-500 dark:text-cyan-400
 }
 
-.divider-purple,
-.divider-left::before.divider-purple,
-.divider-left::after.divider-purple,
-.divider-center::before.divider-purple,
-.divider-center::after.divider-purple,
-.divider-right::before.divider-purple,
-.divider-right::after.divider-purple {
+.divider-purple {
     @apply border-setxo-500 dark:border-setxo-400 text-setxo-500 dark:text-setxo-400
 }

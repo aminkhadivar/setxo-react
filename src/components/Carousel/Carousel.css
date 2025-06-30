@@ -1,3 +1,7 @@
+/* ------------- Carousel ------------- */
+
+@import "../../styles/base.css";
+
 .carousel {
     @apply overflow-hidden relative
 }

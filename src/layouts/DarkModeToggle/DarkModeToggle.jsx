@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { Moon, Sun1, MaskLeft } from 'iconsax-react'
+import { Moon, Sun1, MaskLeft } from 'iconsax-reactjs'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import ThemeContext  from "../Setxo/ThemeContext"
 
@@ -43,7 +43,7 @@ export default function DarkModeToggle() {
         <Dropdown placement="bottom-center">
             <Dropdown.Trigger>
                 <button id="theme-toggle" type="button"
-                    className={`text-gray-500 dark:text-gray-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-700 h-10 w-10 rounded-full flex items-center justify-center duration-300`}>
+                    className={`text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 h-10 w-10 rounded-full flex items-center justify-center duration-300 cursor-pointer`}>
                     <span className="dark:hidden block">
                         <Sun1 id="theme-toggle-light-icon" size={20} />
                     </span>
@@ -54,13 +54,13 @@ export default function DarkModeToggle() {
             </Dropdown.Trigger>
             <Dropdown.Content width="120">
                 <div className="flex flex-col gap-2 p-2">
-                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == 'light') ? 'bg-zinc-100 !text-zinc-800' : ''}`} onClick={switchLightTheme}>
+                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-700 dark:hover:text-gray-100 ${(getLocalStorage == 'light') ? 'bg-gray-100 !text-gray-800' : 'cursor-pointer'}`} onClick={switchLightTheme}>
                         <Sun1 size={20} />Light
                     </button>
-                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == 'dark') ? 'bg-zinc-600 !text-zinc-100' : ''}`} onClick={switchDarkTheme}>
+                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-700 dark:hover:text-gray-100 ${(getLocalStorage == 'dark') ? 'bg-gray-600 !text-gray-100' : 'cursor-pointer'}`} onClick={switchDarkTheme}>
                         <Moon size={20} />Dark
                     </button>
-                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-zinc-100 dark:hover:bg-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-100 ${(getLocalStorage == null) ? 'bg-zinc-100 dark:bg-zinc-600 !text-zinc-100' : ''}`} onClick={switchSystemTheme}>
+                    <button className={`flex items-center w-full duration-300 text-base gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-700 dark:hover:text-gray-100 ${(getLocalStorage == null) ? 'bg-gray-100 dark:bg-gray-600 !text-gray-100' : 'cursor-pointer'}`} onClick={switchSystemTheme}>
                         <MaskLeft size={20} />System
                     </button>
                 </div>

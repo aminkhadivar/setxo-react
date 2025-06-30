@@ -1,7 +1,9 @@
 /* ------------- Buttons ------------- */
 
+@import "../../styles/base.css";
+
 .btn {
-    @apply flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300 font-medium active:bg-transparent transition duration-300 tracking-wide h-10
+    @apply flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300 font-medium active:bg-transparent transition duration-300 tracking-wide h-10 cursor-pointer
 }
 
 .btn-sm {

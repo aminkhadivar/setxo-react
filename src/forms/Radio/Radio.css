@@ -1,11 +1,13 @@
 /* ------------- Radio ------------- */
 
+@import "../../styles/base.css";
+
 .form-radio {
     @apply w-auto h-auto border-none bg-transparent
 }
 
 .form-radio-input {
-    @apply bg-transparent focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 border-2 h-5 w-5
+    @apply bg-transparent ring-offset-1 ring-offset-black/30 dark:ring-offset-white/30 inset-ring-2 inset-ring-white dark:inset-ring-gray-800 dark:ring-offset-2 duration-300 h-5 w-5 appearance-none rounded-full cursor-pointer
 }
 
 .form-radio .form-label {
@@ -16,40 +18,44 @@
     @apply pointer-events-none opacity-50
 }
 
-.radio-light {
-    @apply text-gray-300
+.radio-default:checked {
+    @apply bg-blue-600
 }
 
-.radio-gray {
-    @apply text-gray-500
+.radio-light:checked {
+    @apply bg-gray-300
 }
 
-.radio-dark {
-    @apply text-gray-700
+.radio-gray:checked {
+    @apply bg-gray-500
 }
 
-.radio-primary {
-    @apply text-blue-500
+.radio-dark:checked {
+    @apply bg-gray-700
 }
 
-.radio-success {
-    @apply text-green-500
+.radio-primary:checked {
+    @apply bg-blue-500
 }
 
-.radio-danger {
-    @apply text-red-500
+.radio-success:checked {
+    @apply bg-green-500
 }
 
-.radio-warning {
-    @apply text-amber-500
+.radio-danger:checked {
+    @apply bg-red-500
 }
 
-.radio-info {
-    @apply text-cyan-500
+.radio-warning:checked {
+    @apply bg-amber-500
 }
 
-.radio-purple {
-    @apply text-setxo-500
+.radio-info:checked {
+    @apply bg-cyan-500
+}
+
+.radio-purple:checked {
+    @apply bg-setxo-500
 }
 
 .radio-sm {

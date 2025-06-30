@@ -1,47 +1,49 @@
 /* ------------- Form Control ------------- */
 
+@import "../../styles/base.css";
+
 .form-group {
     @apply w-full
 }
 
 .form-control {
-    @apply w-full block px-2 bg-white dark:bg-black/10 border-black/10 dark:border-gray-500 focus:bg-white dark:focus:bg-black/20 focus:border-gray-300 dark:focus:border-gray-400 focus:ring focus:ring-gray-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply w-full block p-2 bg-white dark:bg-black/10 border border-black/10 dark:border-gray-500 focus:bg-white dark:focus:bg-black/20 focus:border-gray-300 dark:focus:border-gray-400 focus:ring focus:ring-gray-200/50 dark:focus:ring-white/20 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control-light {
-    @apply bg-white dark:bg-white border-gray-200 dark:border-gray-200 focus:bg-white dark:focus:bg-white focus:border-gray-300 dark:focus:border-gray-100 focus:ring focus:ring-gray-200 dark:focus:ring-gray-500 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-800
+    @apply bg-white dark:bg-white border-gray-200 dark:border-gray-200 focus:bg-white dark:focus:bg-white focus:border-gray-300 dark:focus:border-gray-100 focus:ring focus:ring-gray-200/50 dark:focus:ring-gray-500 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-800
 }
 
 .form-control-gray {
-    @apply bg-gray-200 dark:bg-gray-300 border-gray-400 dark:border-white/20 focus:bg-gray-200 dark:focus:bg-gray-300 focus:border-gray-500 dark:focus:border-gray-200 focus:ring focus:ring-gray-400/30 dark:focus:ring-gray-500 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-800
+    @apply bg-gray-200 dark:bg-gray-300 border-gray-400 dark:border-white/20 focus:bg-gray-200 dark:focus:bg-gray-300 focus:border-gray-500 dark:focus:border-gray-200 focus:ring focus:ring-gray-400/30 dark:focus:ring-gray-500 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-800
 }
 
 .form-control-dark {
-    @apply bg-gray-800 dark:bg-gray-800 border-white/40 dark:border-gray-500 focus:bg-gray-800 dark:focus:bg-gray-800 focus:border-gray-700 dark:focus:border-gray-400 focus:ring focus:ring-gray-400/30 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-200
+    @apply bg-gray-800 dark:bg-gray-800 border-white/40 dark:border-gray-500 focus:bg-gray-800 dark:focus:bg-gray-800 focus:border-gray-700 dark:focus:border-gray-400 focus:ring focus:ring-gray-400/30 dark:focus:ring-white/20 duration-300 focus:outline-none outline-none text-gray-200
 }
 
 .form-control-primary {
-    @apply bg-white dark:bg-gray-900 border-blue-400 dark:border-blue-400 focus:bg-white dark:focus:bg-gray-900 focus:border-blue-500 dark:focus:border-blue-300 focus:ring focus:ring-blue-200 dark:focus:ring-blue-500/50 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply bg-white dark:bg-gray-900 border-blue-400 dark:border-blue-400 focus:bg-white dark:focus:bg-gray-900 focus:border-blue-500 dark:focus:border-blue-300 focus:ring focus:ring-blue-200/50 dark:focus:ring-blue-500/50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control-success {
-    @apply bg-white dark:bg-gray-900 border-green-400 dark:border-green-400 focus:bg-white dark:focus:bg-gray-900 focus:border-green-500 dark:focus:border-green-300 focus:ring focus:ring-green-200 dark:focus:ring-green-500/50 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply bg-white dark:bg-gray-900 border-green-400 dark:border-green-400 focus:bg-white dark:focus:bg-gray-900 focus:border-green-500 dark:focus:border-green-300 focus:ring focus:ring-green-200/50 dark:focus:ring-green-500/50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control-danger {
-    @apply bg-white dark:bg-gray-900 border-red-400 dark:border-red-400 focus:bg-white dark:focus:bg-gray-900 focus:border-red-500 dark:focus:border-red-300 focus:ring focus:ring-red-200 dark:focus:ring-red-500/50 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply bg-white dark:bg-gray-900 border-red-400 dark:border-red-400 focus:bg-white dark:focus:bg-gray-900 focus:border-red-500 dark:focus:border-red-300 focus:ring focus:ring-red-200/50 dark:focus:ring-red-500/50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control-warning {
-    @apply bg-white dark:bg-gray-900 border-amber-400 dark:border-amber-400 focus:bg-white dark:focus:bg-gray-900 focus:border-amber-500 dark:focus:border-amber-300 focus:ring focus:ring-amber-200 dark:focus:ring-amber-500/50 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply bg-white dark:bg-gray-900 border-amber-400 dark:border-amber-400 focus:bg-white dark:focus:bg-gray-900 focus:border-amber-500 dark:focus:border-amber-300 focus:ring focus:ring-amber-200/50 dark:focus:ring-amber-500/50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control-info {
-    @apply bg-white dark:bg-gray-900 border-cyan-400 dark:border-cyan-400 focus:bg-white dark:focus:bg-gray-900 focus:border-cyan-500 dark:focus:border-cyan-300 focus:ring focus:ring-cyan-200 dark:focus:ring-cyan-500/50 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply bg-white dark:bg-gray-900 border-cyan-400 dark:border-cyan-400 focus:bg-white dark:focus:bg-gray-900 focus:border-cyan-500 dark:focus:border-cyan-300 focus:ring focus:ring-cyan-200/50 dark:focus:ring-cyan-500/50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control-purple {
-    @apply bg-white dark:bg-gray-900 border-setxo-400 dark:border-setxo-400 focus:bg-white dark:focus:bg-gray-900 focus:border-setxo-500 dark:focus:border-setxo-300 focus:ring focus:ring-setxo-200 dark:focus:ring-setxo-500/50 focus:ring-opacity-50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
+    @apply bg-white dark:bg-gray-900 border-setxo-400 dark:border-setxo-400 focus:bg-white dark:focus:bg-gray-900 focus:border-setxo-500 dark:focus:border-setxo-300 focus:ring focus:ring-setxo-200/50 dark:focus:ring-setxo-500/50 duration-300 focus:outline-none outline-none text-gray-700 dark:text-gray-200
 }
 
 .form-control::placeholder {

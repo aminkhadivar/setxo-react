@@ -1,5 +1,7 @@
 /* ------------- Alert ------------- */
 
+@import "../../styles/base.css";
+
 .alert {
     @apply w-full flex p-4 text-sm transition duration-300 gap-4
 }

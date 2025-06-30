@@ -1,5 +1,7 @@
 /* ------------- Range ------------- */
 
+@import "../../styles/base.css";
+
 .form-range {
     @apply flex items-center
 }

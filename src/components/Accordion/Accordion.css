@@ -1,15 +1,17 @@
 /* ------------- Accordion ------------- */
 
+@import "../../styles/base.css";
+
 .accordion {
     @apply grid gap-2
 }
 
 .accordion-button {
-    @apply flex gap-2 items-center w-full p-4 text-left text-sm font-medium transition duration-300 justify-between rounded-lg
+    @apply flex gap-2 items-center w-full p-4 text-left text-sm font-medium transition duration-300 justify-between rounded-lg cursor-pointer
 }
 
 .accordion-body {
-    @apply overflow-hidden mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg text-zinc-700 dark:text-zinc-400
+    @apply overflow-hidden mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-400
 }
 
 .accordion-default {

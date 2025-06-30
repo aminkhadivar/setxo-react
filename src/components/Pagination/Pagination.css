@@ -1,5 +1,7 @@
 /* ------------- Pagination ------------- */
 
+@import "../../styles/base.css";
+
 .pagination {
     @apply flex items-end gap-2
 }

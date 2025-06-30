@@ -1,5 +1,7 @@
 /* ------------- Progress ------------- */
 
+@import "../../styles/base.css";
+
 .progress {
     @apply flex items-center w-full bg-gray-100 dark:bg-gray-500/20
 }

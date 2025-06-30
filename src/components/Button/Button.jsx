@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Link } from "@inertiajs/react"
+import A from '../../contents/Links/Links'
 import './Button.css'
 
-export default function Button({ href, as = 'Link', type = 'button', className = '', active = '', disabled = '', size = '', color = 'base', borderColor = '', children, rounded = 'rounded', shadow = '', ...props }) {
+export default function Button({ href, as = '', type = 'button', className = '', active = '', disabled = '', size = '', color = 'base', borderColor = '', children, rounded = 'rounded', shadow = '', ...props }) {
 
     const [activeButton, setActiveButton] = useState('')
 
@@ -95,30 +95,15 @@ export default function Button({ href, as = 'Link', type = 'button', className =
     return (
         href
             ?
-            <>
-                {as === 'Link' &&
-                    <Link
-                        {...props}
-                        href={href}
-                        role="button"
-                        className={`${colorClass} px-2` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
-                    >
-                        {children}
-                    </Link>
-                }
-                {as === 'externalLink' &&
-                    <a
-                        {...props}
-                        href={href}
-                        role="button"
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`${colorClass} px-2` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
-                    >
-                        {children}
-                    </a>
-                }
-            </>
+            <A
+                {...props}
+                href={href}
+                role="button"
+                as={as}
+                className={`${colorClass} px-2` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
+            >
+                {children}
+            </A>
             :
             <button
                 {...props}

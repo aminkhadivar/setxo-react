@@ -1,5 +1,7 @@
 /* ------------- Image ------------- */
 
+@import "../../styles/base.css";
+
 .img-fluid {
     @apply w-full flex items-center justify-center object-cover overflow-hidden
 }

@@ -1,11 +1,15 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
-export default {
+
+module.exports = {
+
+    darkMode: 'class',
+    
     content: [
         "./index.html",
-        "./src/**/*.{js,ts,jsx,tsx}",
-        "./src/**/*.css",
+        "./src/**/*.{js,ts,jsx,tsx,mdx,css}",
+        "./**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
         extend: {
@@ -260,7 +264,7 @@ export default {
                 },
             },
         },
-
     },
+
     plugins: [],
 }

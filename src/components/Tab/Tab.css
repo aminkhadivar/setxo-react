@@ -1,5 +1,7 @@
 /* ------------- Tab ------------- */
 
+@import "../../styles/base.css";
+
 .tab {
     @apply grid gap-4
 }
@@ -11,39 +13,3 @@
 .tab-content {
     @apply overflow-hidden
 }
-/* 
-.tab .nav-link-light.active {
-    @apply text-gray-300 dark:text-gray-200
-}
-
-.tab .nav-link-gray.active {
-    @apply text-gray-500 dark:text-gray-400
-}
-
-.tab .nav-link-dark.active {
-    @apply text-gray-800 dark:text-gray-700
-}
-
-.tab .nav-link-primary.active {
-    @apply text-blue-800 dark:text-blue-400
-}
-
-.tab .nav-link-success.active {
-    @apply text-green-500 dark:text-green-400
-}
-
-.tab .nav-link-danger.active {
-    @apply text-red-500 dark:text-red-400
-}
-
-.tab .nav-link-warning.active {
-    @apply text-amber-500 dark:text-amber-500
-}
-
-.tab .nav-link-info.active {
-    @apply text-cyan-500 dark:text-cyan-400
-}
-
-.tab .nav-link-purple.active {
-    @apply text-setxo-500 dark:text-setxo-400
-} */
